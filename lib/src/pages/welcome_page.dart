@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -9,6 +10,8 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.white));
+
     return Scaffold(
       body: Stack(
         children: [
@@ -70,7 +73,9 @@ class WelcomePage extends StatelessWidget {
                       fontSize: 15.sp,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'login');
+                  },
                 ),
               ),
               Container(
