@@ -1,5 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/widgets/back_button.dart';
+import 'package:delivery_app/src/features/presentation/widgets/back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,7 +53,7 @@ class LoginPage extends StatelessWidget {
                       Text(
                         "Welcome Back",
                         style: TextStyle(
-                          color: accentColor,
+                          color: AppColors.accentColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 30.sp,
                         ),
@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                       Text(
                         "Login to your account",
                         style: TextStyle(
-                          color: greyColor,
+                          color: AppColors.greyColor,
                           fontWeight: FontWeight.w500,
                           fontSize: 15.sp,
                         ),
@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                               Text(
                                 "Don't have an account?",
                                 style: TextStyle(
-                                  color: greyColor,
+                                  color: AppColors.greyColor,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15.sp,
                                 ),
@@ -108,7 +108,7 @@ class LoginPage extends StatelessWidget {
                               Text(
                                 "Sign up",
                                 style: TextStyle(
-                                  color: orange,
+                                  color: AppColors.orange,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15.sp,
                                 ),
@@ -134,7 +134,7 @@ Widget _emailInput() {
     height: 45.h,
     padding: EdgeInsets.only(left: 20.w),
     decoration: BoxDecoration(
-      color: bgInputs,
+      color: AppColors.bgInputs,
       borderRadius: BorderRadius.circular(20.r),
     ),
     child: TextField(
@@ -156,7 +156,7 @@ Widget _passwordInput() {
     height: 45.h,
     padding: EdgeInsets.symmetric(horizontal: 20.w),
     decoration: BoxDecoration(
-      color: bgInputs,
+      color: AppColors.bgInputs,
       borderRadius: BorderRadius.circular(20.r),
     ),
     child: Container(
@@ -181,7 +181,7 @@ Widget _loginButton(BuildContext context) {
     height: 45.h,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: orange,
+        backgroundColor: AppColors.orange,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),

@@ -61,7 +61,7 @@ class WelcomePage extends StatelessWidget {
                 height: 45.h,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: orange,
+                    backgroundColor: AppColors.orange,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.r),
                     ),
@@ -84,7 +84,7 @@ class WelcomePage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 20.h),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: fbButtonColor,
+                    backgroundColor: AppColors.fbButtonColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.r),
                     ),

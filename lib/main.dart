@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           routes: routes,
           initialRoute: 'welcome',
           theme: ThemeData(
-            primaryColor: orange,
+            primaryColor: AppColors.orange,
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(
               iconTheme: IconThemeData(
