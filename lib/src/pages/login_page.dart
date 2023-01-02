@@ -90,28 +90,31 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 40.h),
-                      Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Don't have an account?",
-                              style: TextStyle(
-                                color: greyColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15.sp,
+                      GestureDetector(
+                        onTap: () => Navigator.of(context).pushNamed("sign-up"),
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Don't have an account?",
+                                style: TextStyle(
+                                  color: greyColor,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15.sp,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 5.w),
-                            Text(
-                              "Sign up",
-                              style: TextStyle(
-                                color: orange,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 15.sp,
+                              SizedBox(width: 5.w),
+                              Text(
+                                "Sign up",
+                                style: TextStyle(
+                                  color: orange,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15.sp,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       )
                     ],
