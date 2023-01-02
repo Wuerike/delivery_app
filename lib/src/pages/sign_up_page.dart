@@ -114,7 +114,9 @@ Widget _sign_up_button(BuildContext context) {
           fontSize: 15.sp,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed("tabs");
+      },
     ),
   );
 }

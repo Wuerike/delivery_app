@@ -193,7 +193,9 @@ Widget _loginButton(BuildContext context) {
           fontSize: 15.sp,
         ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed("tabs");
+      },
     ),
   );
 }
