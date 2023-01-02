@@ -31,7 +31,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       Text(
                         "Forgot password",
                         style: TextStyle(
-                          color: accentColor,
+                          color: AppColors.accentColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 30.sp,
                         ),
@@ -70,7 +70,7 @@ Widget _emailInput() {
     height: 45.h,
     padding: EdgeInsets.only(left: 20.w),
     decoration: BoxDecoration(
-      color: bgInputs,
+      color: AppColors.bgInputs,
       borderRadius: BorderRadius.circular(20.r),
     ),
     child: TextField(
@@ -93,7 +93,7 @@ Widget _sendButton(BuildContext context) {
     width: double.infinity,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: orange,
+        backgroundColor: AppColors.orange,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -137,7 +137,7 @@ void _showAlert(BuildContext context) {
                 "Your password has been reset",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: accentColor,
+                  color: AppColors.accentColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 25.sp,
                 ),
@@ -146,7 +146,7 @@ void _showAlert(BuildContext context) {
                 "You'll shortly receive an email with a code to setup a new password.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: accentColor,
+                  color: AppColors.accentColor,
                   fontWeight: FontWeight.w500,
                   fontSize: 15.sp,
                 ),
@@ -166,7 +166,7 @@ Widget _doneButton(BuildContext context) {
     width: double.infinity,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: orange,
+        backgroundColor: AppColors.orange,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),

@@ -29,8 +29,8 @@ class _TabsPageState extends State<TabsPage> {
       body: _tabs.elementAt(_tabIndex),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.sp,
-        selectedItemColor: accentColor,
-        unselectedItemColor: greyColor,
+        selectedItemColor: AppColors.accentColor,
+        unselectedItemColor: AppColors.greyColor,
         currentIndex: _tabIndex,
         onTap: _setTab,
         type: BottomNavigationBarType.fixed,

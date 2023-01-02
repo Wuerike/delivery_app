@@ -31,7 +31,7 @@ class SingUpPage extends StatelessWidget {
                       Text(
                         "Create an account",
                         style: TextStyle(
-                          color: accentColor,
+                          color: AppColors.accentColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 30.sp,
                         ),
@@ -78,7 +78,7 @@ Widget _input(String hintText, {bool obscureText = false, TextInputType textInpu
     height: 45.h,
     padding: EdgeInsets.only(left: 20.w),
     decoration: BoxDecoration(
-      color: bgInputs,
+      color: AppColors.bgInputs,
       borderRadius: BorderRadius.circular(20.r),
     ),
     child: TextField(
@@ -102,7 +102,7 @@ Widget _sign_up_button(BuildContext context) {
     width: double.infinity,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: orange,
+        backgroundColor: AppColors.orange,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
