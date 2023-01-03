@@ -1,8 +1,8 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/tabs/explore_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/favourite_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/my_order_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/profile_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/explore_tab/view/explore_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/favourive_tab/view/favourite_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/my_order_tab/view/my_order_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/profile_tab/view/profile_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
