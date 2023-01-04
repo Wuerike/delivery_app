@@ -1,5 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,23 +52,9 @@ class LoginPage extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
-                      Text(
-                        "Welcome Back",
-                        style: TextStyle(
-                          color: AppColors.accentColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30.sp,
-                        ),
-                      ),
+                      headerText("Welcome Back"),
                       SizedBox(height: 10.h),
-                      Text(
-                        "Login to your account",
-                        style: TextStyle(
-                          color: AppColors.greyColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15.sp,
-                        ),
-                      ),
+                      bodyText("Login to your account", color: AppColors.greyColor),
                       SizedBox(height: 40.h),
                       _emailInput(),
                       SizedBox(height: 20.h),
@@ -79,14 +67,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.of(context).pushNamed("forgot-password");
                         },
                         child: Container(
-                          child: Text(
-                            "Forgot your password?",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15.sp,
-                            ),
-                          ),
+                          child: bodyText("Forgot your password?"),
                         ),
                       ),
                       SizedBox(height: 40.h),
@@ -96,23 +77,9 @@ class LoginPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
-                                "Don't have an account?",
-                                style: TextStyle(
-                                  color: AppColors.greyColor,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.sp,
-                                ),
-                              ),
-                              SizedBox(width: 5.w),
-                              Text(
-                                "Sign up",
-                                style: TextStyle(
-                                  color: AppColors.orange,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 15.sp,
-                                ),
-                              ),
+                              bodyText("Don't have an account?", color: AppColors.greyColor),
+                              bodyText(" "),
+                              bodyText("Sign up", color: AppColors.orange),
                             ],
                           ),
                         ),

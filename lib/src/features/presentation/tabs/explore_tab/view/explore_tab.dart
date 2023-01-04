@@ -1,4 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
@@ -73,14 +76,7 @@ Widget _discoverNewPlaces() {
   return Container(
     margin: EdgeInsets.symmetric(vertical: 20.h),
     alignment: Alignment.centerLeft,
-    child: Text(
-      "Discover new places",
-      style: TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.bold,
-        fontSize: 30.sp,
-      ),
-    ),
+    child: headerText("Discover new places"),
   );
 }
 
@@ -118,26 +114,12 @@ Widget _card(int index) {
         Spacer(flex: 2),
         Container(
           alignment: Alignment.centerLeft,
-          child: Text(
-            "Restaurante numero ${index}",
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 20.sp,
-            ),
-          ),
+          child: titleText("Restaurante numero ${index}"),
         ),
         Spacer(flex: 1),
         Container(
           alignment: Alignment.centerLeft,
-          child: Text(
-            "Restaurante endereço ${index}",
-            style: TextStyle(
-              color: AppColors.greyColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 15.sp,
-            ),
-          ),
+          child: bodyText("Restaurante endereço ${index}", color: AppColors.greyColor),
         ),
         Spacer(flex: 1),
         Row(
@@ -155,14 +137,8 @@ Widget _card(int index) {
                 fontSize: 15.sp,
               ),
             ),
-            Text(
-              " (${index} ratings)",
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w500,
-                fontSize: 15.sp,
-              ),
-            ),
+            bodyText(" "),
+            bodyText("(${index} ratings)", color: AppColors.greyColor),
           ],
         ),
       ],

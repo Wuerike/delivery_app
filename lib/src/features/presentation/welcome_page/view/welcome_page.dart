@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,25 +38,11 @@ class WelcomePage extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 50.w),
-                child: Text(
-                  "DELIVERED FAST FOOD AT YOUR DOOR",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 45.sp,
-                  ),
-                ),
+                child: headerText("DELIVERED FAST FOOD AT YOUR DOOR", fontSize: 45.sp, color: Colors.white),
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 30.h),
-                child: Text(
-                  "Set exact location to find the right restaurants near you",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 17.sp,
-                  ),
-                ),
+                child: bodyText("Set exact location to find the right restaurants near you", color: Colors.white),
               ),
               Container(
                 width: 350.w,

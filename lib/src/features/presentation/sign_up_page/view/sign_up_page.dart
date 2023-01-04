@@ -1,5 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,14 +30,7 @@ class SingUpPage extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
-                      Text(
-                        "Create an account",
-                        style: TextStyle(
-                          color: AppColors.accentColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30.sp,
-                        ),
-                      ),
+                      headerText("Create an account"),
                       SizedBox(height: 40.h),
                       _input("Username"),
                       SizedBox(height: 10.h),
@@ -51,14 +46,9 @@ class SingUpPage extends StatelessWidget {
                       SizedBox(height: 40.h),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        child: Text(
+                        child: bodyText(
                           "By clicking Sign up you agree to the following Therms and Conditions without reservation.",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.sp,
-                          ),
                         ),
                       ),
                     ],

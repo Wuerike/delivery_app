@@ -1,5 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,25 +30,13 @@ class ForgotPasswordPage extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
-                      Text(
-                        "Forgot password",
-                        style: TextStyle(
-                          color: AppColors.accentColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30.sp,
-                        ),
-                      ),
+                      headerText("Forgot password"),
                       SizedBox(height: 10.h),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        child: Text(
+                        child: bodyText(
                           "Please enter your email address. You will receive a link to create a new password via email.",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.sp,
-                          ),
                         ),
                       ),
                       SizedBox(height: 40.h),
