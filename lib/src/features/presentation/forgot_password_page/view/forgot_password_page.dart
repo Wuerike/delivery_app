@@ -12,44 +12,50 @@ class ForgotPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          Positioned(
-            left: 0,
-            top: 50.h,
-            child: backButton(context, Colors.black),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            top: 100.h,
-            child: Container(
-              child: Padding(
-                padding: EdgeInsets.all(20.h),
-                child: Center(
-                  child: Column(
-                    children: [
-                      headerText("Forgot password"),
-                      SizedBox(height: 10.h),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        child: bodyText(
-                          "Please enter your email address. You will receive a link to create a new password via email.",
-                          textAlign: TextAlign.center,
-                        ),
+      body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Stack(
+            children: [
+              Positioned(
+                left: 0,
+                top: 50.h,
+                child: backButton(context, Colors.black),
+              ),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                top: 100.h,
+                child: Container(
+                  child: Padding(
+                    padding: EdgeInsets.all(20.h),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          headerText("Forgot password"),
+                          SizedBox(height: 10.h),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: bodyText(
+                              "Please enter your email address. You will receive a link to create a new password via email.",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(height: 40.h),
+                          _emailInput(),
+                          SizedBox(height: 40.h),
+                          _sendButton(context),
+                        ],
                       ),
-                      SizedBox(height: 40.h),
-                      _emailInput(),
-                      SizedBox(height: 40.h),
-                      _sendButton(context),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
