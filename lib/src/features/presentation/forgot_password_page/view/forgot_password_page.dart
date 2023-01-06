@@ -1,7 +1,7 @@
-import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class ForgotPasswordPage extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 40.h),
-                            _emailInput(),
+                            roundedField("Email", textInputType: TextInputType.emailAddress),
                             SizedBox(height: 40.h),
                             _sendButton(context),
                           ],
@@ -65,28 +65,6 @@ class ForgotPasswordPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _emailInput() {
-  return Container(
-    height: 45.h,
-    padding: EdgeInsets.only(left: 20.w),
-    decoration: BoxDecoration(
-      color: AppColors.bgInputs,
-      borderRadius: BorderRadius.circular(20.r),
-    ),
-    child: TextField(
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(fontSize: 15.sp),
-      decoration: InputDecoration(
-        hintText: "Email",
-        contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-        ),
-      ),
-    ),
-  );
 }
 
 Widget _sendButton(BuildContext context) {
