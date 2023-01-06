@@ -1,9 +1,10 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/tabs/explore_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/favourite_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/my_order_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/profile_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/explore_tab/view/explore_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/favourive_tab/view/favourite_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/my_order_tab/view/my_order_tab.dart';
+import 'package:delivery_app/src/features/presentation/tabs/profile_tab/view/profile_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabsPage extends StatefulWidget {
@@ -26,7 +27,10 @@ class _TabsPageState extends State<TabsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _tabs.elementAt(_tabIndex),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
+        child: _tabs.elementAt(_tabIndex),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.sp,
         selectedItemColor: AppColors.accentColor,

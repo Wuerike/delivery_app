@@ -5,6 +5,7 @@ class AppColors {
   static final accentColor = Color.fromRGBO(10, 31, 68, 1.0);
   static final yellow = Color.fromRGBO(255, 204, 0, 1.0);
   static final greyColor = Color.fromRGBO(184, 187, 198, 1.0);
+  static final greyColor2 = Color.fromRGBO(209, 209, 214, 1.0);
   static final pink = Color.fromRGBO(255, 45, 85, 1.0);
   static final white = Colors.white;
   static final black = Colors.black;
