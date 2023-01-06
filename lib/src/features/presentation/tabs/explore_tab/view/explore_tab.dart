@@ -20,8 +20,14 @@ class ExploreTab extends StatelessWidget {
               delegate: SliverChildListDelegate(
                 [
                   _topBar(context),
-                  _discoverNewPlaces(),
-                  _slideCards(),
+                  SizedBox(height: 20.sp),
+                  headerText("Discover new places"),
+                  SizedBox(height: 20.sp),
+                  _horizontalSlider(),
+                  SizedBox(height: 20.sp),
+                  _sectionHeader(context, "Popular this week", "Show All", () => print("welcome")),
+                  SizedBox(height: 10.sp),
+                  _popularSection(context)
                 ],
               ),
             ),
@@ -72,32 +78,25 @@ Widget _topBar(BuildContext context) {
   );
 }
 
-Widget _discoverNewPlaces() {
+Widget _horizontalSlider() {
   return Container(
-    margin: EdgeInsets.symmetric(vertical: 20.h),
-    alignment: Alignment.centerLeft,
-    child: headerText("Discover new places"),
-  );
-}
-
-Widget _slideCards() {
-  return Container(
-    height: 300.h,
+    height: 310.h,
     width: 250.w,
     child: Swiper(
       itemCount: 4,
       layout: SwiperLayout.DEFAULT,
       itemBuilder: (context, index) {
-        return _card(index);
+        return _sliderCard(index);
       },
     ),
   );
 }
 
-Widget _card(int index) {
+Widget _sliderCard(int index) {
   return Container(
     margin: EdgeInsets.symmetric(horizontal: 10.w),
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
@@ -111,17 +110,107 @@ Widget _card(int index) {
             ),
           ),
         ),
-        Spacer(flex: 2),
-        Container(
-          alignment: Alignment.centerLeft,
-          child: titleText("Restaurante numero ${index}"),
+        _cardComponentText(
+          "Restaurante numero ${index}",
+          "Restaurante endereço ${index}",
+          index.toString(),
+          index.toString(),
+        )
+      ],
+    ),
+  );
+}
+
+Widget _sectionHeader(BuildContext context, String mainText, String actionText, Function onActionTap) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      titleText(mainText),
+      GestureDetector(
+        child: Row(
+          children: [
+            bodyText(actionText),
+            Icon(
+              Icons.play_arrow,
+              size: 15.sp,
+            )
+          ],
         ),
-        Spacer(flex: 1),
-        Container(
-          alignment: Alignment.centerLeft,
-          child: bodyText("Restaurante endereço ${index}", color: AppColors.greyColor),
+        onTap: () => onActionTap,
+      ),
+    ],
+  );
+}
+
+Widget _popularSection(BuildContext context) {
+  return Column(
+    children: [
+      _cardComponent(
+        context,
+        "Restaurante numero 0",
+        "Restaurante endereço 0",
+        "0",
+        "0",
+        "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+      ),
+      _cardComponent(
+        context,
+        "Restaurante numero 1",
+        "Restaurante endereço 1",
+        "1",
+        "1",
+        "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+      ),
+      _cardComponent(
+        context,
+        "Restaurante numero 2",
+        "Restaurante endereço 2",
+        "2",
+        "2",
+        "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+      ),
+    ],
+  );
+}
+
+Widget _cardComponent(
+  BuildContext context,
+  String title,
+  String street,
+  String stars,
+  String ratings,
+  String imageUrl,
+) {
+  return Container(
+    padding: EdgeInsets.symmetric(vertical: 10.h),
+    height: 120.h,
+    child: Row(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(20.r),
+          child: Image(
+            width: 80.w,
+            height: 100.h,
+            fit: BoxFit.cover,
+            image: NetworkImage(imageUrl),
+          ),
         ),
-        Spacer(flex: 1),
+        SizedBox(width: 10.w),
+        _cardComponentText(title, street, stars, ratings)
+      ],
+    ),
+  );
+}
+
+Widget _cardComponentText(String title, String street, String stars, String ratings) {
+  return Container(
+    height: 80.h,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        titleText(title),
+        bodyText(street, color: AppColors.greyColor),
         Row(
           children: [
             Icon(
@@ -129,16 +218,10 @@ Widget _card(int index) {
               color: AppColors.yellow,
               size: 15.sp,
             ),
-            Text(
-              " ${index}",
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 15.sp,
-              ),
-            ),
             bodyText(" "),
-            bodyText("(${index} ratings)", color: AppColors.greyColor),
+            bodyText("${stars}"),
+            bodyText(" "),
+            bodyText("(${ratings} ratings)", color: AppColors.greyColor),
           ],
         ),
       ],
