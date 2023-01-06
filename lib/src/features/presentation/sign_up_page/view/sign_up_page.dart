@@ -1,5 +1,6 @@
-import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
@@ -39,15 +40,15 @@ class SingUpPage extends StatelessWidget {
                           children: [
                             headerText("Create an account"),
                             SizedBox(height: 40.h),
-                            _input("Username"),
+                            roundedField("Username"),
                             SizedBox(height: 10.h),
-                            _input("Email", textInputType: TextInputType.emailAddress),
+                            roundedField("Email", textInputType: TextInputType.emailAddress),
                             SizedBox(height: 10.h),
-                            _input("Phone", textInputType: TextInputType.phone),
+                            roundedField("Phone", textInputType: TextInputType.phone),
                             SizedBox(height: 10.h),
-                            _input("Date of birth", textInputType: TextInputType.datetime),
+                            roundedField("Date of birth", textInputType: TextInputType.datetime),
                             SizedBox(height: 10.h),
-                            _input("Password", obscureText: true),
+                            roundedField("Password", obscureText: true),
                             SizedBox(height: 40.h),
                             _sign_up_button(context),
                             SizedBox(height: 40.h),
@@ -73,50 +74,9 @@ class SingUpPage extends StatelessWidget {
   }
 }
 
-Widget _input(String hintText, {bool obscureText = false, TextInputType textInputType = TextInputType.text}) {
-  return Container(
-    height: 45.h,
-    padding: EdgeInsets.only(left: 20.w),
-    decoration: BoxDecoration(
-      color: AppColors.bgInputs,
-      borderRadius: BorderRadius.circular(20.r),
-    ),
-    child: TextField(
-      keyboardType: textInputType,
-      style: TextStyle(fontSize: 15.sp),
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        hintText: hintText,
-        contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-        ),
-      ),
-    ),
-  );
-}
-
 Widget _sign_up_button(BuildContext context) {
-  return Container(
-    height: 45.h,
-    width: double.infinity,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.orange,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-      ),
-      child: Text(
-        "Sign up",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 15.sp,
-        ),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed("tabs");
-      },
-    ),
+  return roundedButton(
+    "Log in",
+    onPressed: () => Navigator.of(context).pushNamed("tabs"),
   );
 }

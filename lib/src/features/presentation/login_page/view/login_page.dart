@@ -1,5 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
@@ -60,9 +62,9 @@ class LoginPage extends StatelessWidget {
                             SizedBox(height: 10.h),
                             bodyText("Login to your account", color: AppColors.greyColor),
                             SizedBox(height: 40.h),
-                            _emailInput(),
+                            roundedField("Email", textInputType: TextInputType.emailAddress),
                             SizedBox(height: 20.h),
-                            _passwordInput(),
+                            roundedField("Password", obscureText: true),
                             SizedBox(height: 40.h),
                             _loginButton(context),
                             SizedBox(height: 20.h),
@@ -103,73 +105,9 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-Widget _emailInput() {
-  return Container(
-    height: 45.h,
-    padding: EdgeInsets.only(left: 20.w),
-    decoration: BoxDecoration(
-      color: AppColors.bgInputs,
-      borderRadius: BorderRadius.circular(20.r),
-    ),
-    child: TextField(
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(fontSize: 15.sp),
-      decoration: InputDecoration(
-        hintText: "Email",
-        contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-        ),
-      ),
-    ),
-  );
-}
-
-Widget _passwordInput() {
-  return Container(
-    height: 45.h,
-    padding: EdgeInsets.symmetric(horizontal: 20.w),
-    decoration: BoxDecoration(
-      color: AppColors.bgInputs,
-      borderRadius: BorderRadius.circular(20.r),
-    ),
-    child: Container(
-      child: TextField(
-        obscureText: true,
-        style: TextStyle(fontSize: 15.sp),
-        decoration: InputDecoration(
-          hintText: "Password",
-          contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
 Widget _loginButton(BuildContext context) {
-  return Container(
-    width: 350.w,
-    height: 45.h,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.orange,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-      ),
-      child: Text(
-        "Log in",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 15.sp,
-        ),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed("tabs");
-      },
-    ),
+  return roundedButton(
+    "Log in",
+    onPressed: () => Navigator.of(context).pushNamed("tabs"),
   );
 }
