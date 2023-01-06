@@ -1,5 +1,6 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
@@ -88,27 +89,11 @@ Widget _emailInput() {
 }
 
 Widget _sendButton(BuildContext context) {
-  return Container(
-    height: 45.h,
-    width: double.infinity,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.orange,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-      ),
-      child: Text(
-        "Send",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 15.sp,
-        ),
-      ),
-      onPressed: () {
-        _showAlert(context);
-      },
-    ),
+  return roundedButton(
+    "Send",
+    onPressed: () {
+      _showAlert(context);
+    },
   );
 }
 

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
@@ -33,74 +34,31 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50.w),
-                  child: headerText("DELIVERED FAST FOOD AT YOUR DOOR", fontSize: 45.sp, color: Colors.white),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50.w, vertical: 30.h),
-                  child: bodyText("Set exact location to find the right restaurants near you", color: Colors.white),
-                ),
-                Container(
-                  width: 350.w,
-                  height: 45.h,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.orange,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                    ),
-                    child: Text(
-                      "Log in",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15.sp,
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'login');
-                    },
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30.w),
+                    child: headerText("DELIVERED FAST FOOD AT YOUR DOOR", fontSize: 45.sp, color: Colors.white),
                   ),
-                ),
-                Container(
-                  width: 350.w,
-                  height: 45.h,
-                  margin: EdgeInsets.only(top: 20.h),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.fbButtonColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image(
-                          image: AssetImage("assets/facebook.png"),
-                          width: 20.w,
-                          height: 20.h,
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 10.w),
-                          child: Text(
-                            "Connect with facebook",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15.sp,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    onPressed: () {},
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+                    child: bodyText("Set exact location to find the right restaurants near you", color: Colors.white),
                   ),
-                ),
-              ],
+                  roundedButton(
+                    "Log in",
+                    onPressed: () => Navigator.of(context).pushNamed("login"),
+                  ),
+                  SizedBox(height: 20.h),
+                  roundedButton(
+                    "Connect with facebook",
+                    color: AppColors.fbButtonColor,
+                    iconImagePath: AssetImage("assets/facebook.png"),
+                  ),
+                ],
+              ),
             )
           ],
         ),
