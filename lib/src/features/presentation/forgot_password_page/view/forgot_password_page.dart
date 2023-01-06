@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
@@ -92,80 +93,14 @@ Widget _sendButton(BuildContext context) {
   return roundedButton(
     "Send",
     onPressed: () {
-      _showAlert(context);
-    },
-  );
-}
-
-void _showAlert(BuildContext context) {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20.r),
-          ),
-        ),
-        content: Container(
-          height: 300.h,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image(
-                image: AssetImage("assets/lock.png"),
-                width: 130.w,
-                height: 130.h,
-              ),
-              Text(
-                "Your password has been reset",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.accentColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25.sp,
-                ),
-              ),
-              Text(
-                "You'll shortly receive an email with a code to setup a new password.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: AppColors.accentColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.sp,
-                ),
-              ),
-              _doneButton(context)
-            ],
-          ),
-        ),
+      alertWidget(
+        context,
+        AssetImage("assets/lock.png"),
+        "Your password has been reset",
+        "You'll shortly receive an email with a code to setup a new password.",
+        "Done",
+        () => Navigator.popUntil(context, ModalRoute.withName("login")),
       );
     },
-  );
-}
-
-Widget _doneButton(BuildContext context) {
-  return Container(
-    height: 45.h,
-    width: double.infinity,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.orange,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-      ),
-      child: Text(
-        "Done",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 15.sp,
-        ),
-      ),
-      onPressed: () {
-        Navigator.popUntil(context, ModalRoute.withName("login"));
-      },
-    ),
   );
 }
