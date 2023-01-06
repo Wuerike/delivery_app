@@ -12,7 +12,7 @@ class ExploreTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
       child: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -21,13 +21,12 @@ class ExploreTab extends StatelessWidget {
                 [
                   _topBar(context),
                   SizedBox(height: 20.sp),
-                  headerText("Discover new places"),
+                  _discoverSection(),
                   SizedBox(height: 20.sp),
-                  _horizontalSlider(),
+                  _popularSection(context),
                   SizedBox(height: 20.sp),
-                  _sectionHeader(context, "Popular this week", "Show All", () => print("welcome")),
-                  SizedBox(height: 10.sp),
-                  _popularSection(context)
+                  _collectionSection(context),
+                  SizedBox(height: 20.sp),
                 ],
               ),
             ),
@@ -78,17 +77,23 @@ Widget _topBar(BuildContext context) {
   );
 }
 
-Widget _horizontalSlider() {
-  return Container(
-    height: 310.h,
-    width: 250.w,
-    child: Swiper(
-      itemCount: 4,
-      layout: SwiperLayout.DEFAULT,
-      itemBuilder: (context, index) {
-        return _sliderCard(index);
-      },
-    ),
+Widget _discoverSection() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      headerText("Discover new places"),
+      SizedBox(height: 20.sp),
+      Container(
+        height: 310.h,
+        child: Swiper(
+          itemCount: 4,
+          layout: SwiperLayout.DEFAULT,
+          itemBuilder: (context, index) {
+            return _sliderCard(index);
+          },
+        ),
+      ),
+    ],
   );
 }
 
@@ -145,6 +150,8 @@ Widget _sectionHeader(BuildContext context, String mainText, String actionText, 
 Widget _popularSection(BuildContext context) {
   return Column(
     children: [
+      _sectionHeader(context, "Popular this week", "Show All", () {}),
+      SizedBox(height: 10.sp),
       _cardComponent(
         context,
         "Restaurante numero 0",
@@ -225,6 +232,42 @@ Widget _cardComponentText(String title, String street, String stars, String rati
           ],
         ),
       ],
+    ),
+  );
+}
+
+Widget _collectionSection(BuildContext context) {
+  return Column(
+    children: [
+      _sectionHeader(context, "Collections", "Show All", () {}),
+      SizedBox(height: 10.sp),
+      Container(
+        height: 180.h,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            return _collectionCard(index);
+          },
+        ),
+      )
+    ],
+  );
+}
+
+Widget _collectionCard(int index) {
+  return Container(
+    margin: EdgeInsets.only(right: 10.w),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(20.r),
+      child: Image(
+        height: 180.h,
+        width: 300.w,
+        fit: BoxFit.cover,
+        image: NetworkImage(
+          "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        ),
+      ),
     ),
   );
 }
