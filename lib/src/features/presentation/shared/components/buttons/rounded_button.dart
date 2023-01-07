@@ -18,67 +18,34 @@ Widget roundedButton(
   labelColor = labelColor ?? Colors.white;
   onPressed = onPressed ?? () {};
 
-  if (iconImagePath == null) {
-    return _roundedButtonWithoutIcon(label, height, width, color, labelColor, onPressed);
-  }
-
-  return _roundedButtonWithIcon(label, height, width, color, labelColor, iconImagePath, onPressed);
-}
-
-Widget _roundedButtonWithoutIcon(
-  String label,
-  double height,
-  double width,
-  Color color,
-  Color labelColor,
-  Function() onPressed,
-) {
   return SizedBox(
     width: width,
     height: height,
     child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        shape: const StadiumBorder(),
-      ),
-      onPressed: onPressed,
-      child: bodyText(label, color: labelColor),
-    ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: const StadiumBorder(),
+        ),
+        onPressed: onPressed,
+        child: iconImagePath == null
+            ? bodyText(label, color: labelColor)
+            : _iconAndText(label, labelColor, iconImagePath)),
   );
 }
 
-Widget _roundedButtonWithIcon(
-  String label,
-  double height,
-  double width,
-  Color color,
-  Color labelColor,
-  ImageProvider<Object> iconImagePath,
-  Function()? onPressed,
-) {
-  return SizedBox(
-    width: width,
-    height: height,
-    child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: color,
-        shape: const StadiumBorder(),
+Widget _iconAndText(String label, Color labelColor, ImageProvider<Object> iconImagePath) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Image(
+        image: iconImagePath,
+        width: 20.sp,
+        height: 20.sp,
       ),
-      onPressed: onPressed,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image(
-            image: iconImagePath,
-            width: 20.sp,
-            height: 20.sp,
-          ),
-          bodyText("  "),
-          Container(
-            child: bodyText(label, color: labelColor),
-          ),
-        ],
+      bodyText("  "),
+      Container(
+        child: bodyText(label, color: labelColor),
       ),
-    ),
+    ],
   );
 }
