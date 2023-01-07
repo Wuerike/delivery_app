@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
 import 'package:delivery_app/src/features/presentation/tabs/explore_tab/view/explore_tab.dart';
 import 'package:delivery_app/src/features/presentation/tabs/favourive_tab/view/favourite_tab.dart';
 import 'package:delivery_app/src/features/presentation/tabs/my_order_tab/view/my_order_tab.dart';
@@ -25,6 +26,24 @@ class _TabsPageState extends State<TabsPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration.zero, () async {
+      await alertWidget(
+        context,
+        const AssetImage("assets/location.png"),
+        "Enable your location",
+        "Please allow the use of your location",
+        "Enable Location",
+        () {
+          Navigator.of(context).pop();
+        },
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnnotatedRegion<SystemUiOverlayStyle>(
@@ -33,7 +52,7 @@ class _TabsPageState extends State<TabsPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 30.sp,
-        selectedItemColor: AppColors.accentColor,
+        selectedItemColor: AppColors.orange,
         unselectedItemColor: AppColors.greyColor,
         currentIndex: _tabIndex,
         onTap: _setTab,
