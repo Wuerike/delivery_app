@@ -2,6 +2,7 @@ import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/restaurant_rating_text_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,17 +44,20 @@ Widget _topBar(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Expanded(
-        child: Container(
-          padding: EdgeInsets.all(10.h),
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.greyColor),
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-          child: Row(
-            children: [
-              Icon(Icons.search, size: 20.sp, color: AppColors.greyColor2),
-              Text("Search", style: TextStyle(color: AppColors.greyColor2, fontSize: 15.sp)),
-            ],
+        child: GestureDetector(
+          onTap: () => Navigator.pushNamed(context, "search"),
+          child: Container(
+            padding: EdgeInsets.all(10.h),
+            decoration: BoxDecoration(
+              border: Border.all(color: AppColors.greyColor),
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.search, size: 20.sp, color: AppColors.greyColor2),
+                Text("Search", style: TextStyle(color: AppColors.greyColor2, fontSize: 15.sp)),
+              ],
+            ),
           ),
         ),
       ),
