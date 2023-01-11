@@ -126,31 +126,10 @@ Widget _sliderCard(int index) {
   );
 }
 
-Widget _sectionHeader(BuildContext context, String mainText, String actionText, Function onActionTap) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      titleText(mainText),
-      GestureDetector(
-        child: Row(
-          children: [
-            bodyText(actionText),
-            Icon(
-              Icons.play_arrow,
-              size: 15.sp,
-            )
-          ],
-        ),
-        onTap: () => onActionTap,
-      ),
-    ],
-  );
-}
-
 Widget _popularSection(BuildContext context) {
   return Column(
     children: [
-      _sectionHeader(context, "Popular this week", "Show All", () {}),
+      sectionHeader("Popular this week", "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
       _cardComponent(
         context,
@@ -239,7 +218,7 @@ Widget _cardComponentText(String title, String street, String stars, String rati
 Widget _collectionSection(BuildContext context) {
   return Column(
     children: [
-      _sectionHeader(context, "Collections", "Show All", () {}),
+      sectionHeader("Collections", "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
       Container(
         height: 180.h,
