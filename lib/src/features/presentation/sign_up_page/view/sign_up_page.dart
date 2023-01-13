@@ -2,7 +2,7 @@ import 'package:delivery_app/src/features/presentation/shared/components/buttons
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +38,7 @@ class SingUpPage extends StatelessWidget {
                       child: Center(
                         child: Column(
                           children: [
-                            headerText("Create an account"),
+                            header1Text("Create an account"),
                             SizedBox(height: 40.h),
                             roundedField("Username"),
                             SizedBox(height: 10.h),

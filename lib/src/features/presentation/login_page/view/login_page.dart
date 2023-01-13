@@ -3,7 +3,7 @@ import 'package:delivery_app/src/features/presentation/shared/components/buttons
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                       child: Center(
                         child: Column(
                           children: [
-                            headerText("Welcome Back"),
+                            header1Text("Welcome Back"),
                             SizedBox(height: 10.h),
                             bodyText("Login to your account", color: AppColors.greyColor),
                             SizedBox(height: 40.h),

@@ -3,7 +3,7 @@ import 'package:delivery_app/src/features/presentation/shared/components/cards/h
 import 'package:delivery_app/src/features/presentation/shared/components/cards/restaurant_rating_text_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
@@ -86,10 +86,10 @@ Widget _discoverSection() {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      headerText("Discover new places"),
+      header1Text("Discover new places"),
       SizedBox(height: 20.sp),
       Container(
-        height: 310.h,
+        height: 300.h,
         child: Swiper(
           itemCount: 4,
           layout: SwiperLayout.DEFAULT,
@@ -115,7 +115,7 @@ Widget _discoverSection() {
 Widget _popularSection(BuildContext context) {
   return Column(
     children: [
-      sectionHeader("Popular this week", "Show All", icon: Icons.play_arrow, onActionTap: () {}),
+      sectionHeader(title: "Popular this week", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
       horizontalCard(
         image: NetworkImage(
@@ -157,7 +157,7 @@ Widget _popularSection(BuildContext context) {
 Widget _collectionSection(BuildContext context) {
   return Column(
     children: [
-      sectionHeader("Collections", "Show All", icon: Icons.play_arrow, onActionTap: () {}),
+      sectionHeader(title: "Collections", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
       SizedBox(
         height: 180.h,

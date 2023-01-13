@@ -10,7 +10,7 @@ Widget horizontalCard({ImageProvider<Object>? image, Widget? child}) {
         ClipRRect(
           borderRadius: BorderRadius.circular(20.r),
           child: Image(
-            width: 80.w,
+            width: 100.w,
             height: 100.h,
             fit: BoxFit.cover,
             image: image!,
