@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/header_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +41,7 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 30.w),
-                    child: headerText("DELIVERED FAST FOOD AT YOUR DOOR", fontSize: 45.sp, color: Colors.white),
+                    child: header1Text("DELIVERED FAST FOOD AT YOUR DOOR", fontSize: 45.sp, color: Colors.white),
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
@@ -55,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                   roundedButton(
                     "Connect with facebook",
                     color: AppColors.fbButtonColor,
-                    iconImagePath: AssetImage("assets/facebook.png"),
+                    iconImagePath: const AssetImage("assets/facebook.png"),
                   ),
                 ],
               ),

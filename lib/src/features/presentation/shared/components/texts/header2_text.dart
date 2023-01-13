@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget titleText(
+Widget header2Text(
   String text, {
   double fontSize = 0,
   Color color = Colors.black,
