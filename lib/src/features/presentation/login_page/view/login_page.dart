@@ -17,8 +17,8 @@ class LoginPage extends StatelessWidget {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent),
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
-          child: Container(
+          physics: const ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
@@ -79,15 +79,13 @@ class LoginPage extends StatelessWidget {
                             SizedBox(height: 40.h),
                             GestureDetector(
                               onTap: () => Navigator.of(context).pushNamed("sign-up"),
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    bodyText("Don't have an account?", color: AppColors.greyColor),
-                                    bodyText(" "),
-                                    bodyText("Sign up", color: AppColors.orange),
-                                  ],
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  bodyText("Don't have an account?", color: AppColors.greyColor),
+                                  bodyText(" "),
+                                  bodyText("Sign up", color: AppColors.orange),
+                                ],
                               ),
                             )
                           ],

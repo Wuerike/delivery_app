@@ -18,8 +18,8 @@ class ForgotPasswordPage extends StatelessWidget {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
-          child: Container(
+          physics: const ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
@@ -33,27 +33,25 @@ class ForgotPasswordPage extends StatelessWidget {
                   right: 0,
                   bottom: 0,
                   top: 100.h,
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.all(20.h),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            header1Text("Forgot password"),
-                            SizedBox(height: 10.h),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: bodyText(
-                                "Please enter your email address. You will receive a link to create a new password via email.",
-                                textAlign: TextAlign.center,
-                              ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.h),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          header1Text("Forgot password"),
+                          SizedBox(height: 10.h),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: bodyText(
+                              "Please enter your email address. You will receive a link to create a new password via email.",
+                              textAlign: TextAlign.center,
                             ),
-                            SizedBox(height: 40.h),
-                            roundedField("Email", textInputType: TextInputType.emailAddress),
-                            SizedBox(height: 40.h),
-                            _sendButton(context),
-                          ],
-                        ),
+                          ),
+                          SizedBox(height: 40.h),
+                          roundedField("Email", textInputType: TextInputType.emailAddress),
+                          SizedBox(height: 40.h),
+                          _sendButton(context),
+                        ],
                       ),
                     ),
                   ),
@@ -73,7 +71,7 @@ Widget _sendButton(BuildContext context) {
     onPressed: () {
       alertWidget(
         context,
-        AssetImage("assets/lock.png"),
+        const AssetImage("assets/lock.png"),
         "Your password has been reset",
         "You'll shortly receive an email with a code to setup a new password.",
         "Done",

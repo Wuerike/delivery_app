@@ -17,8 +17,8 @@ class SingUpPage extends StatelessWidget {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
         child: SingleChildScrollView(
-          physics: ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
-          child: Container(
+          physics: const ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
@@ -32,35 +32,33 @@ class SingUpPage extends StatelessWidget {
                   right: 0,
                   bottom: 0,
                   top: 100.h,
-                  child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.all(20.h),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            header1Text("Create an account"),
-                            SizedBox(height: 40.h),
-                            roundedField("Username"),
-                            SizedBox(height: 10.h),
-                            roundedField("Email", textInputType: TextInputType.emailAddress),
-                            SizedBox(height: 10.h),
-                            roundedField("Phone", textInputType: TextInputType.phone),
-                            SizedBox(height: 10.h),
-                            roundedField("Date of birth", textInputType: TextInputType.datetime),
-                            SizedBox(height: 10.h),
-                            roundedField("Password", obscureText: true),
-                            SizedBox(height: 40.h),
-                            _sign_up_button(context),
-                            SizedBox(height: 40.h),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              child: bodyText(
-                                "By clicking Sign up you agree to the following Therms and Conditions without reservation.",
-                                textAlign: TextAlign.center,
-                              ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20.h),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          header1Text("Create an account"),
+                          SizedBox(height: 40.h),
+                          roundedField("Username"),
+                          SizedBox(height: 10.h),
+                          roundedField("Email", textInputType: TextInputType.emailAddress),
+                          SizedBox(height: 10.h),
+                          roundedField("Phone", textInputType: TextInputType.phone),
+                          SizedBox(height: 10.h),
+                          roundedField("Date of birth", textInputType: TextInputType.datetime),
+                          SizedBox(height: 10.h),
+                          roundedField("Password", obscureText: true),
+                          SizedBox(height: 40.h),
+                          _signUpButton(context),
+                          SizedBox(height: 40.h),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            child: bodyText(
+                              "By clicking Sign up you agree to the following Therms and Conditions without reservation.",
+                              textAlign: TextAlign.center,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -74,7 +72,7 @@ class SingUpPage extends StatelessWidget {
   }
 }
 
-Widget _sign_up_button(BuildContext context) {
+Widget _signUpButton(BuildContext context) {
   return roundedButton(
     "Log in",
     onPressed: () => Navigator.of(context).pushNamed("tabs"),

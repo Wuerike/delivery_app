@@ -21,16 +21,12 @@ Widget restaurantRatingTextCard({String? title, String? body, String? stars, Str
               size: 15.sp,
             ),
             bodyText(" "),
-            bodyText("${stars}"),
+            bodyText(stars ?? ""),
             bodyText(" "),
-            bodyText("(${ratings} ratings)", color: AppColors.greyColor),
+            bodyText("(${ratings ?? ""} ratings)", color: AppColors.greyColor),
           ],
         ),
       ],
     ),
   );
 }
-
-/*
-
- */

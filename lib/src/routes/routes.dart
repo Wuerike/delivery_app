@@ -7,10 +7,10 @@ import 'package:delivery_app/src/features/presentation/welcome_page/view/welcome
 import 'package:flutter/widgets.dart';
 
 final routes = <String, WidgetBuilder>{
-  'welcome': (BuildContext context) => WelcomePage(),
-  'login': (BuildContext context) => LoginPage(),
-  'forgot-password': (BuildContext context) => ForgotPasswordPage(),
-  'sign-up': (BuildContext context) => SingUpPage(),
-  'tabs': (BuildContext context) => TabsPage(),
-  'search': (BuildContext context) => SearchPage()
+  'welcome': (BuildContext context) => const WelcomePage(),
+  'login': (BuildContext context) => const LoginPage(),
+  'forgot-password': (BuildContext context) => const ForgotPasswordPage(),
+  'sign-up': (BuildContext context) => const SingUpPage(),
+  'tabs': (BuildContext context) => const TabsPage(),
+  'search': (BuildContext context) => const SearchPage()
 };

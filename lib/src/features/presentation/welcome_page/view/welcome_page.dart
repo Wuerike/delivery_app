@@ -55,7 +55,7 @@ class WelcomePage extends StatelessWidget {
                   roundedButton(
                     "Connect with facebook",
                     color: AppColors.fbButtonColor,
-                    iconImagePath: AssetImage("assets/facebook.png"),
+                    iconImagePath: const AssetImage("assets/facebook.png"),
                   ),
                 ],
               ),

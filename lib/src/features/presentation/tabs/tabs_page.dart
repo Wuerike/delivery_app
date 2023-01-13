@@ -9,14 +9,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TabsPage extends StatefulWidget {
-  TabsPage({Key? key}) : super(key: key);
+  const TabsPage({Key? key}) : super(key: key);
 
   @override
   State<TabsPage> createState() => _TabsPageState();
 }
 
 class _TabsPageState extends State<TabsPage> {
-  final List<Widget> _tabs = [ExploreTab(), MyOrderTab(), FavouriteTab(), ProfileTab()];
+  final List<Widget> _tabs = [const ExploreTab(), MyOrderTab(), FavouriteTab(), ProfileTab()];
   int _tabIndex = 0;
 
   void _setTab(int index) {
@@ -58,7 +58,7 @@ class _TabsPageState extends State<TabsPage> {
         onTap: _setTab,
         type: BottomNavigationBarType.fixed,
         showUnselectedLabels: true,
-        items: <BottomNavigationBarItem>[
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: "Explore"),
           BottomNavigationBarItem(icon: Icon(Icons.assignment), label: "My Order"),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: "Favourite"),

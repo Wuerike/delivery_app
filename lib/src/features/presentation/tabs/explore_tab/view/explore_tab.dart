@@ -88,7 +88,7 @@ Widget _discoverSection() {
     children: [
       header1Text("Discover new places"),
       SizedBox(height: 20.sp),
-      Container(
+      SizedBox(
         height: 300.h,
         child: Swiper(
           itemCount: 4,
@@ -99,8 +99,8 @@ Widget _discoverSection() {
                 "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
               ),
               child: restaurantRatingTextCard(
-                title: "Restaurante numero ${index}",
-                body: "Restaurante endereço ${index}",
+                title: "Restaurante numero $index",
+                body: "Restaurante endereço $index",
                 ratings: index.toString(),
                 stars: index.toString(),
               ),
