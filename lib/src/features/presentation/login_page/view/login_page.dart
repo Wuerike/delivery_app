@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                             SizedBox(height: 20.h),
                             GestureDetector(
                               onTap: () {
-                                Navigator.of(context).pushNamed("forgot-password");
+                                Navigator.pushNamed(context, "forgot-password");
                               },
                               child: Container(
                                 child: bodyText("Forgot your password?"),
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                             ),
                             SizedBox(height: 40.h),
                             GestureDetector(
-                              onTap: () => Navigator.of(context).pushNamed("sign-up"),
+                              onTap: () => Navigator.pushNamed(context, "sign-up"),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -106,6 +106,6 @@ class LoginPage extends StatelessWidget {
 Widget _loginButton(BuildContext context) {
   return roundedButton(
     "Log in",
-    onPressed: () => Navigator.of(context).pushNamed("tabs"),
+    onPressed: () => Navigator.pushNamed(context, "tabs"),
   );
 }

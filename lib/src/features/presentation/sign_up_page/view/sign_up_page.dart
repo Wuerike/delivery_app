@@ -75,6 +75,6 @@ class SingUpPage extends StatelessWidget {
 Widget _signUpButton(BuildContext context) {
   return roundedButton(
     "Log in",
-    onPressed: () => Navigator.of(context).pushNamed("tabs"),
+    onPressed: () => Navigator.pushNamed(context, "tabs"),
   );
 }
