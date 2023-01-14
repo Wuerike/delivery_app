@@ -1,3 +1,4 @@
+import 'package:delivery_app/src/features/presentation/filter_page/view/filter_page.dart';
 import 'package:delivery_app/src/features/presentation/forgot_password_page/view/forgot_password_page.dart';
 import 'package:delivery_app/src/features/presentation/login_page/view/login_page.dart';
 import 'package:delivery_app/src/features/presentation/search_page/view/search_page.dart';
@@ -12,5 +13,6 @@ final routes = <String, WidgetBuilder>{
   'forgot-password': (BuildContext context) => const ForgotPasswordPage(),
   'sign-up': (BuildContext context) => const SingUpPage(),
   'tabs': (BuildContext context) => const TabsPage(),
-  'search': (BuildContext context) => const SearchPage()
+  'search': (BuildContext context) => const SearchPage(),
+  'filter': (BuildContext context) => const FilterPage()
 };
