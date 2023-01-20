@@ -37,7 +37,7 @@ class _TabsPageState extends State<TabsPage> {
         "Please allow the use of your location",
         "Enable Location",
         () {
-          Navigator.of(context).pop();
+          Navigator.pop(context);
         },
       );
     });

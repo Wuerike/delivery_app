@@ -75,7 +75,7 @@ Widget _topBar(BuildContext context) {
             size: 25.sp,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, "filter"),
         ),
       ),
     ],
