@@ -1,6 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CuisineFilter extends StatefulWidget {
   const CuisineFilter({super.key});
@@ -36,7 +37,8 @@ class _CuisineFilterState extends State<CuisineFilter> {
     return SizedBox(
       width: double.maxFinite,
       child: Wrap(
-        alignment: WrapAlignment.spaceBetween,
+        alignment: WrapAlignment.center,
+        spacing: 10.w,
         children: List.generate(
           cuisinesNames.length,
           (index) {
