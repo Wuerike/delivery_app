@@ -106,6 +106,6 @@ class LoginPage extends StatelessWidget {
 Widget _loginButton(BuildContext context) {
   return roundedButton(
     "Log in",
-    onPressed: () => Navigator.pushNamed(context, "tabs"),
+    onPressed: () => Navigator.pushNamed(context, "home"),
   );
 }

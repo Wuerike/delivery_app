@@ -1,21 +1,21 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
-import 'package:delivery_app/src/features/presentation/tabs/explore_tab/view/explore_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/favourive_tab/view/favourite_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/my_order_tab/view/my_order_tab.dart';
-import 'package:delivery_app/src/features/presentation/tabs/profile_tab/view/profile_tab.dart';
+import 'package:delivery_app/src/features/presentation/home_page/explore_tab/view/explore_tab.dart';
+import 'package:delivery_app/src/features/presentation/home_page/favourive_tab/view/favourite_tab.dart';
+import 'package:delivery_app/src/features/presentation/home_page/my_order_tab/view/my_order_tab.dart';
+import 'package:delivery_app/src/features/presentation/home_page/profile_tab/view/profile_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class TabsPage extends StatefulWidget {
-  const TabsPage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<TabsPage> createState() => _TabsPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _TabsPageState extends State<TabsPage> {
+class _HomePageState extends State<HomePage> {
   final List<Widget> _tabs = [const ExploreTab(), MyOrderTab(), FavouriteTab(), ProfileTab()];
   int _tabIndex = 0;
 
