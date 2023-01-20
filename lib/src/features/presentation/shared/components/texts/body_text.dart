@@ -6,7 +6,7 @@ Widget bodyText(String text, {double fontSize = 0, Color color = Colors.black, T
 
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: textAlign,
     style: TextStyle(
       color: color,
       fontWeight: FontWeight.w400,
