@@ -157,7 +157,12 @@ Widget _popularSection(BuildContext context) {
 Widget _collectionSection(BuildContext context) {
   return Column(
     children: [
-      sectionHeader(title: "Collections", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
+      sectionHeader(
+        title: "Collections",
+        actionText: "Show All",
+        icon: Icons.play_arrow,
+        onActionTap: () => Navigator.pushNamed(context, "collections"),
+      ),
       SizedBox(height: 10.sp),
       SizedBox(
         height: 180.h,
