@@ -4,14 +4,14 @@ import 'package:delivery_app/src/features/presentation/shared/components/texts/h
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget sectionHeader({String title = "", String actionText = "", Function? onActionTap, IconData? icon}) {
+Widget sectionHeader({String title = "", String actionText = "", Function()? onActionTap, IconData? icon}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       header2Text(title),
       GestureDetector(
+        onTap: onActionTap,
         child: icon == null ? bodyText(actionText, color: AppColors.orange) : _iconAndText(actionText, icon),
-        onTap: () => onActionTap,
       ),
     ],
   );
