@@ -62,7 +62,7 @@ class SearchPage extends StatelessWidget {
 Widget _searchInput(BuildContext context) {
   return Container(
     height: 45.h,
-    width: double.infinity,
+    width: double.maxFinite,
     padding: EdgeInsets.only(left: 10.w, right: 20.w),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(45.h),

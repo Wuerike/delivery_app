@@ -11,7 +11,7 @@ Widget roundedField(
   TextInputType? textInputType = TextInputType.text,
 }) {
   height = height ?? 45.h;
-  width = width ?? double.infinity;
+  width = width ?? double.maxFinite;
   color = color ?? AppColors.bgInputs;
 
   return Container(

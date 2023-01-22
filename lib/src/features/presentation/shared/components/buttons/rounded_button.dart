@@ -13,7 +13,7 @@ Widget roundedButton(
   Function()? onPressed,
 }) {
   height = height ?? 45.h;
-  width = width ?? double.infinity;
+  width = width ?? double.maxFinite;
   color = color ?? AppColors.orange;
   labelColor = labelColor ?? Colors.white;
   onPressed = onPressed ?? () {};

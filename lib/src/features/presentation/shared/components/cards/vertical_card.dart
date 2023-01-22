@@ -19,7 +19,7 @@ Widget verticalCard({
           child: Image(
             image: image!,
             height: imageHeight ?? 220.h,
-            width: imageWidth ?? double.infinity,
+            width: imageWidth ?? double.maxFinite,
             fit: BoxFit.cover,
           ),
         ),
