@@ -8,10 +8,12 @@ Widget bodyText(
   Color color = Colors.black,
   Color? strokeColor,
   TextAlign textAlign = TextAlign.start,
+  TextOverflow? overflow,
 }) {
   return Text(
     text,
     textAlign: textAlign,
+    overflow: overflow,
     style: TextStyle(
       color: color,
       fontWeight: FontWeight.w400,
