@@ -1,11 +1,10 @@
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header2_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../shared/components/texts/body_text.dart';
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -54,6 +53,7 @@ class CollectionsPage extends StatelessWidget {
                     list.length,
                     (index) {
                       return _collectionItem(
+                        context: context,
                         category: list[index]["category"],
                         quantity: list[index]["quantity"],
                         image: NetworkImage(
@@ -71,15 +71,15 @@ class CollectionsPage extends StatelessWidget {
   }
 }
 
-Widget _collectionItem({String category = "", int quantity = 0, ImageProvider<Object>? image}) {
+Widget _collectionItem({BuildContext? context, String category = "", int quantity = 0, ImageProvider<Object>? image}) {
   return GestureDetector(
-    onTap: () {},
+    onTap: () => Navigator.pushNamed(context!, "collection-detail"),
     child: Stack(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20.r),
           child: Image(
-            fit: BoxFit.fill,
+            fit: BoxFit.cover,
             image: image!,
             width: double.maxFinite,
             height: double.maxFinite,
