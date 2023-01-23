@@ -1,6 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/restaurant_rating_text_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
@@ -14,7 +13,7 @@ class ExploreTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
+      margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
       child: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -87,7 +86,7 @@ Widget _discoverSection() {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       header1Text("Discover new places"),
-      SizedBox(height: 20.sp),
+      SizedBox(height: 20.h),
       SizedBox(
         height: 300.h,
         child: Swiper(
@@ -95,14 +94,12 @@ Widget _discoverSection() {
           layout: SwiperLayout.DEFAULT,
           itemBuilder: (context, index) {
             return verticalCard(
+              title: "Restaurante numero $index",
+              body: "Restaurante endereço $index",
+              ratings: index.toString(),
+              stars: index.toString(),
               image: NetworkImage(
                 "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-              ),
-              child: restaurantRatingTextCard(
-                title: "Restaurante numero $index",
-                body: "Restaurante endereço $index",
-                ratings: index.toString(),
-                stars: index.toString(),
               ),
             );
           },
@@ -118,36 +115,30 @@ Widget _popularSection(BuildContext context) {
       sectionHeader(title: "Popular this week", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
       horizontalCard(
+        title: "Restaurante numero 123456789",
+        body: "Restaurante endereço 0",
+        ratings: "0",
+        stars: "0",
         image: NetworkImage(
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
-        ),
-        child: restaurantRatingTextCard(
-          title: "Restaurante numero 0",
-          body: "Restaurante endereço 0",
-          ratings: "0",
-          stars: "0",
         ),
       ),
       horizontalCard(
+        title: "Restaurante numero 1",
+        body: "Restaurante endereço 1",
+        ratings: "1",
+        stars: "1",
         image: NetworkImage(
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
-        ),
-        child: restaurantRatingTextCard(
-          title: "Restaurante numero 1",
-          body: "Restaurante endereço 1",
-          ratings: "1",
-          stars: "1",
         ),
       ),
       horizontalCard(
+        title: "Restaurante numero 2",
+        body: "Restaurante endereço 2",
+        ratings: "2",
+        stars: "2",
         image: NetworkImage(
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
-        ),
-        child: restaurantRatingTextCard(
-          title: "Restaurante numero 2",
-          body: "Restaurante endereço 2",
-          ratings: "2",
-          stars: "2",
         ),
       ),
     ],
@@ -171,11 +162,11 @@ Widget _collectionSection(BuildContext context) {
           itemCount: 4,
           itemBuilder: (context, index) {
             return verticalCard(
+              width: 300.w,
+              imageHeight: 180.h,
               image: NetworkImage(
                 "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
               ),
-              imageHeight: 180.h,
-              imageWidth: 300.w,
             );
           },
         ),
