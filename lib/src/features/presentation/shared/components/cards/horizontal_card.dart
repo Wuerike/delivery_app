@@ -10,6 +10,8 @@ Widget horizontalCard({
   String? body,
   String? stars,
   String? ratings,
+  bool? isFavourite,
+  void Function()? favouriteAction,
   ImageProvider<Object>? image,
 }) {
   return Container(
@@ -17,10 +19,10 @@ Widget horizontalCard({
     child: Row(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(70.r),
           child: Image(
-            width: 100.w,
-            height: 100.h,
+            width: 70.h,
+            height: 70.h,
             fit: BoxFit.cover,
             image: image!,
           ),
@@ -28,7 +30,7 @@ Widget horizontalCard({
         SizedBox(width: 10.w),
         Flexible(
           child: SizedBox(
-            height: 70.h,
+            height: 60.h,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +53,20 @@ Widget horizontalCard({
               ],
             ),
           ),
-        )
+        ),
+        isFavourite == null
+            ? Container()
+            : Container(
+                height: 70.h,
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: favouriteAction,
+                  child: Icon(
+                    Icons.bookmark_border,
+                    color: isFavourite == true ? AppColors.orange : AppColors.greyColor,
+                  ),
+                ),
+              )
       ],
     ),
   );
