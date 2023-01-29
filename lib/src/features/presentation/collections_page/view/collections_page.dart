@@ -1,7 +1,6 @@
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/collection_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/texts/header2_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,8 +51,8 @@ class CollectionsPage extends StatelessWidget {
                   children: List.generate(
                     list.length,
                     (index) {
-                      return _collectionItem(
-                        context: context,
+                      return collectionCard(
+                        onTap: () => Navigator.pushNamed(context, "collection-detail"),
                         category: list[index]["category"],
                         quantity: list[index]["quantity"],
                         image: NetworkImage(
@@ -69,41 +68,4 @@ class CollectionsPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _collectionItem({BuildContext? context, String category = "", int quantity = 0, ImageProvider<Object>? image}) {
-  return GestureDetector(
-    onTap: () => Navigator.pushNamed(context!, "collection-detail"),
-    child: Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
-          child: Image(
-            fit: BoxFit.cover,
-            image: image!,
-            width: double.maxFinite,
-            height: double.maxFinite,
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: const Color.fromRGBO(0, 0, 0, 1.5),
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-        ),
-        Container(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              const Spacer(flex: 3),
-              header2Text(category, color: Colors.white),
-              bodyText("$quantity Places", color: Colors.white),
-              const Spacer(flex: 1)
-            ],
-          ),
-        )
-      ],
-    ),
-  );
 }

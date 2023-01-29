@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/collection_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
@@ -161,11 +162,16 @@ Widget _collectionSection(BuildContext context) {
           scrollDirection: Axis.horizontal,
           itemCount: 4,
           itemBuilder: (context, index) {
-            return placeVerticalCard(
-              width: 300.w,
-              imageHeight: 180.h,
-              image: NetworkImage(
-                "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              child: collectionCard(
+                width: 300.w,
+                height: 180.h,
+                category: "Vegan",
+                quantity: 150,
+                image: NetworkImage(
+                  "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                ),
               ),
             );
           },
