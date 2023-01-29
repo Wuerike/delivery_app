@@ -5,7 +5,7 @@ import 'package:delivery_app/src/features/presentation/shared/extensions/string_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget verticalCard({
+Widget placeVerticalCard({
   String? title,
   String? body,
   String? stars,
@@ -15,38 +15,42 @@ Widget verticalCard({
   double? imageHeight,
   ImageProvider<Object>? image,
   double? cardHorizontalMargin,
+  Function()? onTap,
 }) {
-  return Container(
-    margin: EdgeInsets.symmetric(horizontal: cardHorizontalMargin ?? 10.w),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(20.r),
-          child: Image(
-            image: image!,
-            height: imageHeight ?? 220.h,
-            width: width ?? double.maxFinite,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Flexible(
-          child: SizedBox(
-            height: textHeight ?? 70.h,
-            width: width ?? double.maxFinite,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                title == null ? Container() : _hasTitle(title),
-                body == null ? Container() : _hasBody(body),
-                stars == null || ratings == null ? Container() : _hasReviews(stars, ratings),
-              ],
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      margin: EdgeInsets.symmetric(horizontal: cardHorizontalMargin ?? 10.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.r),
+            child: Image(
+              image: image!,
+              height: imageHeight ?? 220.h,
+              width: width ?? double.maxFinite,
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-      ],
+          Flexible(
+            child: SizedBox(
+              height: textHeight ?? 70.h,
+              width: width ?? double.maxFinite,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  title == null ? Container() : _hasTitle(title),
+                  body == null ? Container() : _hasBody(body),
+                  stars == null || ratings == null ? Container() : _hasReviews(stars, ratings),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -95,7 +96,7 @@ Widget _recentSearchSection(BuildContext context) {
           scrollDirection: Axis.horizontal,
           itemCount: 4,
           itemBuilder: (context, index) {
-            return verticalCard(
+            return placeVerticalCard(
               title: "Restaurante $index",
               width: 220.w,
               textHeight: 20.h,
