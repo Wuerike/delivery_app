@@ -1,5 +1,5 @@
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -101,7 +101,7 @@ Widget _body(BuildContext context, List<Map> list) {
       delegate: SliverChildBuilderDelegate(
         childCount: list.length,
         (context, index) {
-          return horizontalCard(
+          return placeHorizontalCard(
             title: list[index]["Name"],
             body: "Restaurante endereço 0",
             ratings: "0",

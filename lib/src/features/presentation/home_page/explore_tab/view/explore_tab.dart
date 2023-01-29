@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
@@ -114,7 +115,7 @@ Widget _popularSection(BuildContext context) {
     children: [
       sectionHeader(title: "Popular this week", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 123456789",
         body: "Restaurante endereço 0",
         ratings: "0",
@@ -123,7 +124,7 @@ Widget _popularSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 1",
         body: "Restaurante endereço 1",
         ratings: "1",
@@ -132,7 +133,7 @@ Widget _popularSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 2",
         body: "Restaurante endereço 2",
         ratings: "2",
