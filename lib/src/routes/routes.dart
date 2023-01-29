@@ -1,4 +1,4 @@
-import 'package:delivery_app/src/features/presentation/collections_details_page/view/collection_detail_page.dart';
+import 'package:delivery_app/src/features/presentation/collection_detail_page/view/collection_detail_page.dart';
 import 'package:delivery_app/src/features/presentation/collections_page/view/collections_page.dart';
 import 'package:delivery_app/src/features/presentation/filter_page/view/filter_page.dart';
 import 'package:delivery_app/src/features/presentation/forgot_password_page/view/forgot_password_page.dart';
