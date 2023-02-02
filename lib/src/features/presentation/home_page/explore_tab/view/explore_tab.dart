@@ -23,7 +23,7 @@ class ExploreTab extends StatelessWidget {
                 [
                   _topBar(context),
                   SizedBox(height: 20.sp),
-                  _discoverSection(),
+                  _discoverSection(context),
                   SizedBox(height: 20.sp),
                   _popularSection(context),
                   SizedBox(height: 20.sp),
@@ -82,7 +82,7 @@ Widget _topBar(BuildContext context) {
   );
 }
 
-Widget _discoverSection() {
+Widget _discoverSection(BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -102,6 +102,7 @@ Widget _discoverSection() {
               image: NetworkImage(
                 "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
               ),
+              onTap: () => Navigator.pushNamed(context, "place-detail"),
             );
           },
         ),
