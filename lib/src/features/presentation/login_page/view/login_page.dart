@@ -50,7 +50,7 @@ class LoginPage extends StatelessWidget {
                   top: 330.h,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.bgGreyPage,
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Padding(
