@@ -8,15 +8,18 @@ Widget bodyText(
   Color color = Colors.black,
   Color? strokeColor,
   TextAlign textAlign = TextAlign.start,
+  FontWeight fontWeight = FontWeight.w400,
   TextOverflow? overflow,
+  int? maxLines,
 }) {
   return Text(
     text,
     textAlign: textAlign,
     overflow: overflow,
+    maxLines: maxLines,
     style: TextStyle(
       color: color,
-      fontWeight: FontWeight.w400,
+      fontWeight: fontWeight,
       fontSize: fontSize ?? 15.sp,
       shadows: strokeColor == null ? [] : outlinedTextShadow(strokeColor: strokeColor),
     ),
