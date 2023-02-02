@@ -5,7 +5,7 @@ import 'package:delivery_app/src/features/presentation/shared/extensions/string_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget horizontalCard({
+Widget placeHorizontalCard({
   String? title,
   String? body,
   String? stars,

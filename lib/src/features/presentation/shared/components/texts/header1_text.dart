@@ -9,11 +9,13 @@ Widget header1Text(
   Color? strokeColor,
   TextAlign textAlign = TextAlign.start,
   TextOverflow? overflow,
+  int? maxLines,
 }) {
   return Text(
     text,
     textAlign: textAlign,
     overflow: overflow,
+    maxLines: maxLines,
     style: TextStyle(
       color: color,
       fontWeight: FontWeight.bold,

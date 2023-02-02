@@ -1,6 +1,6 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -96,7 +96,7 @@ Widget _recentSearchSection(BuildContext context) {
           scrollDirection: Axis.horizontal,
           itemCount: 4,
           itemBuilder: (context, index) {
-            return verticalCard(
+            return placeVerticalCard(
               title: "Restaurante $index",
               width: 220.w,
               textHeight: 20.h,
@@ -117,7 +117,7 @@ Widget _recommendedForYouSection(BuildContext context) {
     children: [
       sectionHeader(title: "Recommended for you"),
       SizedBox(height: 10.sp),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restauranteeeeeeeee numero 0",
         body: "Restaurante endereço 0",
         ratings: "0",
@@ -126,7 +126,7 @@ Widget _recommendedForYouSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 1",
         body: "Restaurante endereço 1",
         ratings: "1",
@@ -135,7 +135,7 @@ Widget _recommendedForYouSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 2",
         body: "Restaurante endereço 2",
         ratings: "2",
@@ -144,7 +144,7 @@ Widget _recommendedForYouSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 2",
         body: "Restaurante endereço 2",
         ratings: "2",

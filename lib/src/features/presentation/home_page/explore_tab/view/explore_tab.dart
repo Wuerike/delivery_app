@@ -1,6 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/horizontal_card.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/cards/vertical_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/collection_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class ExploreTab extends StatelessWidget {
                 [
                   _topBar(context),
                   SizedBox(height: 20.sp),
-                  _discoverSection(),
+                  _discoverSection(context),
                   SizedBox(height: 20.sp),
                   _popularSection(context),
                   SizedBox(height: 20.sp),
@@ -81,7 +82,7 @@ Widget _topBar(BuildContext context) {
   );
 }
 
-Widget _discoverSection() {
+Widget _discoverSection(BuildContext context) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -93,7 +94,7 @@ Widget _discoverSection() {
           itemCount: 4,
           layout: SwiperLayout.DEFAULT,
           itemBuilder: (context, index) {
-            return verticalCard(
+            return placeVerticalCard(
               title: "Restaurante numero $index",
               body: "Restaurante endereço $index",
               ratings: index.toString(),
@@ -101,6 +102,7 @@ Widget _discoverSection() {
               image: NetworkImage(
                 "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
               ),
+              onTap: () => Navigator.pushNamed(context, "place-detail"),
             );
           },
         ),
@@ -114,7 +116,7 @@ Widget _popularSection(BuildContext context) {
     children: [
       sectionHeader(title: "Popular this week", actionText: "Show All", icon: Icons.play_arrow, onActionTap: () {}),
       SizedBox(height: 10.sp),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 123456789",
         body: "Restaurante endereço 0",
         ratings: "0",
@@ -123,7 +125,7 @@ Widget _popularSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 1",
         body: "Restaurante endereço 1",
         ratings: "1",
@@ -132,7 +134,7 @@ Widget _popularSection(BuildContext context) {
           "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
         ),
       ),
-      horizontalCard(
+      placeHorizontalCard(
         title: "Restaurante numero 2",
         body: "Restaurante endereço 2",
         ratings: "2",
@@ -161,11 +163,16 @@ Widget _collectionSection(BuildContext context) {
           scrollDirection: Axis.horizontal,
           itemCount: 4,
           itemBuilder: (context, index) {
-            return verticalCard(
-              width: 300.w,
-              imageHeight: 180.h,
-              image: NetworkImage(
-                "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+            return Container(
+              margin: EdgeInsets.symmetric(horizontal: 10.w),
+              child: collectionCard(
+                width: 300.w,
+                height: 180.h,
+                category: "Vegan",
+                quantity: 150,
+                image: NetworkImage(
+                  "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+                ),
               ),
             );
           },
