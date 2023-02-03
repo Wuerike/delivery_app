@@ -320,7 +320,7 @@ Widget _reviewCard(Map<dynamic, dynamic> review) {
 Widget _addToOrderButton() {
   return Container(
     height: 55.h,
-    width: 300,
+    width: 300.w,
     margin: EdgeInsets.only(left: 20.w, right: 20.w, bottom: 10.h),
     decoration: BoxDecoration(
       color: AppColors.orange,
