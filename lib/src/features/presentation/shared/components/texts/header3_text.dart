@@ -8,6 +8,7 @@ Widget header3Text(
   Color color = Colors.black,
   Color? strokeColor,
   TextAlign textAlign = TextAlign.start,
+  FontWeight fontWeight = FontWeight.bold,
   TextOverflow? overflow,
 }) {
   return Text(
@@ -16,7 +17,7 @@ Widget header3Text(
     overflow: overflow,
     style: TextStyle(
       color: color,
-      fontWeight: FontWeight.bold,
+      fontWeight: fontWeight,
       fontSize: fontSize ?? 17.sp,
       shadows: strokeColor == null ? [] : outlinedTextShadow(strokeColor: strokeColor),
     ),
