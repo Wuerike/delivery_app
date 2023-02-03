@@ -52,29 +52,24 @@ class _FilterPageState extends State<FilterPage> {
   }
 }
 
-PreferredSize _appBar(BuildContext context) {
-  return PreferredSize(
-    preferredSize: Size.fromHeight(60.h),
-    child: Material(
-      elevation: 0.5,
-      color: Colors.white,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            header3Text("Reset"),
-            Center(
-              child: header1Text("Filters"),
-            ),
-            GestureDetector(
-              onTap: (() => Navigator.pop(context)),
-              child: header3Text("Done", color: AppColors.orange),
-            ),
-          ],
+AppBar _appBar(BuildContext context) {
+  return AppBar(
+    elevation: 0.5,
+    backgroundColor: Colors.white,
+    automaticallyImplyLeading: false,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        header3Text("Reset"),
+        Center(
+          child: header1Text("Filters"),
         ),
-      ),
+        GestureDetector(
+          onTap: (() => Navigator.pop(context)),
+          child: header3Text("Done", color: AppColors.orange),
+        ),
+      ],
     ),
   );
 }

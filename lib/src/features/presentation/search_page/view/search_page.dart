@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/header/section_header.dart';
@@ -15,19 +16,16 @@ class SearchPage extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.white),
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          elevation: 0.5,
+          backgroundColor: Colors.white,
+          leading: backButton(context, Colors.black),
+          title: header1Text("Search"),
+          centerTitle: true,
+        ),
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
-              backgroundColor: Colors.white,
-              leading: IconButton(
-                icon: Icon(
-                  Icons.close,
-                  color: Colors.black,
-                  size: 30.sp,
-                ),
-                onPressed: () => Navigator.pop(context),
-              ),
-            ),
             SliverList(
               delegate: SliverChildListDelegate(
                 [
@@ -36,8 +34,6 @@ class SearchPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 20.h),
-                        header1Text("Search"),
                         SizedBox(height: 20.h),
                         _searchInput(context),
                         SizedBox(height: 20.h),
