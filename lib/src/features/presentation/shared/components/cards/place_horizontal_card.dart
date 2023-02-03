@@ -64,7 +64,7 @@ Widget placeHorizontalCard({
                 child: GestureDetector(
                   onTap: favouriteAction,
                   child: Icon(
-                    Icons.bookmark_border,
+                    Icons.bookmark,
                     color: isFavourite == true ? AppColors.orange : AppColors.greyColor,
                   ),
                 ),
