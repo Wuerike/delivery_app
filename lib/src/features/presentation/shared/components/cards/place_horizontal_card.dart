@@ -36,7 +36,9 @@ Widget placeHorizontalCard({
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 title == null ? Container() : header3Text(title.ellipsisOverflowFix(), overflow: TextOverflow.ellipsis),
-                body == null ? Container() : bodyText(body.ellipsisOverflowFix(), color: AppColors.greyColor),
+                body == null
+                    ? Container()
+                    : bodyText(body.ellipsisOverflowFix(), overflow: TextOverflow.ellipsis, color: AppColors.greyColor),
                 Row(
                   children: [
                     Icon(
