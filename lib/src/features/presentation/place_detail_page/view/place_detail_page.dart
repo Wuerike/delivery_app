@@ -331,8 +331,8 @@ Widget _addToOrderButton() {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          bodyText("Add to Order", color: Colors.white),
-          bodyText("\$ 53.13", color: Colors.white),
+          header3Text("Add to Order", color: Colors.white),
+          header3Text("\$ 53.13", color: Colors.white),
         ],
       ),
     ),
