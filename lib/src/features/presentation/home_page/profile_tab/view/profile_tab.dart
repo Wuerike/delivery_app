@@ -18,7 +18,7 @@ class _ProfileTabState extends State<ProfileTab> {
       value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.white),
       child: SafeArea(
         child: Scaffold(
-          appBar: _appBar(),
+          appBar: _appBar(context),
           body: _profileBody(),
         ),
       ),
@@ -26,7 +26,7 @@ class _ProfileTabState extends State<ProfileTab> {
   }
 }
 
-AppBar _appBar() {
+AppBar _appBar(BuildContext context) {
   return AppBar(
     elevation: 0.5,
     toolbarHeight: 150.h,
@@ -44,7 +44,7 @@ AppBar _appBar() {
         ),
         header2Text("Amanda Silveira"),
         IconButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, "profile-detail"),
           icon: Icon(Icons.chevron_right, color: AppColors.greyColor, size: 25.sp),
         )
       ],
