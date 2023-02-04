@@ -124,9 +124,7 @@ Widget _appBar(BuildContext context) {
         ],
       ),
     ),
-    leading: Builder(
-      builder: (context) => backButton(context, Colors.white),
-    ),
+    leading: backButton(context, Colors.white),
     actions: [
       IconButton(
         onPressed: () {},
@@ -143,7 +141,7 @@ Widget _appBar(BuildContext context) {
           color: Colors.white,
           size: 30.sp,
         ),
-      )
+      ),
     ],
   );
 }

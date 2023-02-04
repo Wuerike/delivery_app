@@ -23,7 +23,7 @@ class ForgotPasswordPage extends StatelessWidget {
             child: Stack(
               children: [
                 Positioned(
-                  left: 0,
+                  left: 16,
                   top: 50.h,
                   child: backButton(context, Colors.black),
                 ),

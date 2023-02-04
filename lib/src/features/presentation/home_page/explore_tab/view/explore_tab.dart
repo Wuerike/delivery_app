@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/collection_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_horizontal_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/cards/place_vertical_card.dart';
@@ -13,22 +14,29 @@ class ExploreTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
-      child: SafeArea(
+    return Scaffold(
+      body: SafeArea(
         child: CustomScrollView(
           slivers: [
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  _topBar(context),
-                  SizedBox(height: 20.sp),
-                  _discoverSection(context),
-                  SizedBox(height: 20.sp),
-                  _popularSection(context),
-                  SizedBox(height: 20.sp),
-                  _collectionSection(context),
-                  SizedBox(height: 20.sp),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.w),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 20.sp),
+                        _topBar(context),
+                        SizedBox(height: 20.sp),
+                        _discoverSection(context),
+                        SizedBox(height: 20.sp),
+                        _popularSection(context),
+                        SizedBox(height: 20.sp),
+                        _collectionSection(context),
+                        SizedBox(height: 20.sp),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

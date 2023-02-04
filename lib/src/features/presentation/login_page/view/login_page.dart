@@ -39,7 +39,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  left: 0,
+                  left: 16,
                   top: 50.h,
                   child: backButton(context, Colors.white),
                 ),

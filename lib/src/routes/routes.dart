@@ -5,6 +5,7 @@ import 'package:delivery_app/src/features/presentation/forgot_password_page/view
 import 'package:delivery_app/src/features/presentation/home_page/home_page.dart';
 import 'package:delivery_app/src/features/presentation/login_page/view/login_page.dart';
 import 'package:delivery_app/src/features/presentation/place_detail_page/view/place_detail_page.dart';
+import 'package:delivery_app/src/features/presentation/profile_detail_page/view/profile_detail_page.dart';
 import 'package:delivery_app/src/features/presentation/search_page/view/search_page.dart';
 import 'package:delivery_app/src/features/presentation/sign_up_page/view/sign_up_page.dart';
 import 'package:delivery_app/src/features/presentation/welcome_page/view/welcome_page.dart';
@@ -20,5 +21,6 @@ final routes = <String, WidgetBuilder>{
   'filter': (BuildContext context) => const FilterPage(),
   'collections': (BuildContext context) => const CollectionsPage(),
   'collection-detail': (BuildContext context) => const CollectionDetailPage(),
-  'place-detail': (BuildContext context) => const PlaceDetailPage()
+  'place-detail': (BuildContext context) => const PlaceDetailPage(),
+  'profile-detail': (BuildContext context) => const ProfileDetailPage()
 };
