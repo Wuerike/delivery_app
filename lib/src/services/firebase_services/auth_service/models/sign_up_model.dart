@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-class SignUpResponse {
-  SignUpResponse({
+class SignUpModel {
+  SignUpModel({
     this.idToken,
     this.email,
     this.refreshToken,
@@ -15,11 +15,11 @@ class SignUpResponse {
   String? expiresIn;
   String? localId;
 
-  factory SignUpResponse.fromJson(String str) => SignUpResponse.fromMap(json.decode(str));
+  factory SignUpModel.fromJson(String str) => SignUpModel.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory SignUpResponse.fromMap(Map<String, dynamic> json) => SignUpResponse(
+  factory SignUpModel.fromMap(Map<String, dynamic> json) => SignUpModel(
         idToken: json["idToken"],
         email: json["email"],
         refreshToken: json["refreshToken"],
