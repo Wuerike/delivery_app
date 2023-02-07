@@ -1,17 +1,17 @@
 import 'dart:convert';
 
-class AuthErrorResponse {
-  AuthErrorResponse({
+class AuthErrorModel {
+  AuthErrorModel({
     this.error,
   });
 
   Error? error;
 
-  factory AuthErrorResponse.fromJson(String str) => AuthErrorResponse.fromMap(json.decode(str));
+  factory AuthErrorModel.fromJson(String str) => AuthErrorModel.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory AuthErrorResponse.fromMap(Map<String, dynamic> json) => AuthErrorResponse(
+  factory AuthErrorModel.fromMap(Map<String, dynamic> json) => AuthErrorModel(
         error: json["error"] == null ? null : Error.fromMap(json["error"]),
       );
 
