@@ -56,8 +56,11 @@ class ApiService extends ApiServiceAbstraction {
   }
 
   @override
-  Future<Map<String, dynamic>> post(
-      {required String url, required Map<String, dynamic> body, Map<String, String>? headers}) async {
+  Future<Map<String, dynamic>> post({
+    required String url,
+    required Map<String, dynamic> body,
+    Map<String, String>? headers,
+  }) async {
     final uri = Uri.parse(url);
     final response = await http.post(uri, headers: headers, body: jsonEncode(body));
 

@@ -1,5 +1,5 @@
-class SignInBody {
-  SignInBody({
+class SignInParams {
+  SignInParams({
     required this.email,
     required this.password,
   });
