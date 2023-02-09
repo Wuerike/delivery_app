@@ -1,5 +1,5 @@
-class SignUpBody {
-  SignUpBody({
+class SignUpParams {
+  SignUpParams({
     required this.email,
     required this.password,
   });
