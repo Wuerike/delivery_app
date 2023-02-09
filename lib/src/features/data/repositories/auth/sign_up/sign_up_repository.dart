@@ -11,9 +11,9 @@ class SignUpRepository extends SignUpRepositoryAbstraction {
   SignUpRepository({required SignUpServiceAbstraction signUpService}) : _signUpService = signUpService;
 
   @override
-  Future<Result<SignUpEntity, Failure>> signUp({required SignUpParams params}) async {
+  Future<Result<SignUpEntity, Failure>> signUp({required SignUpParams? params}) async {
     try {
-      final result = await _signUpService.signUp(body: params.toMap());
+      final result = await _signUpService.signUp(body: params!.toMap());
       var mapResult = SignUpEntity.fromMap(result);
       return Result.success(mapResult);
     } on Failure catch (f) {

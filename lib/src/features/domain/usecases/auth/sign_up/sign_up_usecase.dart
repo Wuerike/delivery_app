@@ -16,13 +16,13 @@ abstract class SignUpUseCaseAbstraction {
 
 class SignUpUsecase extends SignUpUseCaseAbstraction {
   final SignUpRepositoryAbstraction _signUpRepository;
-  final SaverUserUsecaseAbstraction _saverUserUsecase;
+  final SaveUserUsecaseAbstraction _saveUserUsecase;
 
   SignUpUsecase({
     required SignUpRepositoryAbstraction signUpRepository,
-    required SaverUserUsecaseAbstraction saverUserUsecase,
+    required SaveUserUsecaseAbstraction saveUserUsecase,
   })  : _signUpRepository = signUpRepository,
-        _saverUserUsecase = saverUserUsecase;
+        _saveUserUsecase = saveUserUsecase;
 
   @override
   Future<Result<SignUpEntity, Failure>> execute({required SignUpUsecaseParams params}) {
@@ -50,7 +50,7 @@ class SignUpUsecase extends SignUpUseCaseAbstraction {
               idToken: signUpEntity.idToken,
             );
 
-            return _saverUserUsecase.execute(user: userEntity).then((result) {
+            return _saveUserUsecase.execute(user: userEntity).then((result) {
               switch (result.status) {
                 case ResultStatus.success:
                   return Result.success(signUpEntity);
