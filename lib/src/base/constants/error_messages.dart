@@ -1,5 +1,5 @@
 abstract class AppFailureMessages {
-  static String unExpectedErrorMessage = "An unexpected error has occurred";
+  static String unexpectedErrorMessage = "An unexpected error has occurred";
 }
 
 abstract class FirebaseFailureMessages {
