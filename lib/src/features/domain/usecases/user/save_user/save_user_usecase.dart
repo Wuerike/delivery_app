@@ -3,15 +3,15 @@ import 'package:delivery_app/src/features/data/interfaces/interfaces.dart';
 import 'package:delivery_app/src/features/domain/entities/user/user_entity.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
-abstract class SaverUserUsecaseAbstraction {
+abstract class SaveUserUsecaseAbstraction {
   Future<Result<UserEntity, Failure>> execute({required UserEntity user});
 }
 
-class SaverUserUsecase extends SaverUserUsecaseAbstraction {
+class SaveUserUsecase extends SaveUserUsecaseAbstraction {
   // * Dependencies
   final SaveUserRepositoryAbstraction _repository;
 
-  SaverUserUsecase({required SaveUserRepositoryAbstraction repository}) : _repository = repository;
+  SaveUserUsecase({required SaveUserRepositoryAbstraction repository}) : _repository = repository;
 
   @override
   Future<Result<UserEntity, Failure>> execute({required UserEntity user}) {
