@@ -1,31 +1,56 @@
-import 'package:delivery_app/src/base/api_service/api_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery_app/src/base/app_error/app_error.dart';
+import 'package:delivery_app/src/base/constants/error_messages.dart';
 import 'package:delivery_app/src/services/firebase_services/database_service/interfaces/interfaces.dart';
+import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 class DatabaseService extends DatabaseServiceAbstraction {
-  final ApiServiceAbstraction _apiService;
+  final db = FirebaseFirestore.instance;
 
-  DatabaseService({required ApiServiceAbstraction apiService}) : _apiService = apiService;
+  DatabaseService();
 
   @override
-  Future<Map<String, dynamic>> getData({required String path}) async {
-    var endpoint = baseUrl + path;
+  Future<Result<Map<String, dynamic>, Failure>> getDocument({required String collection, required String id}) async {
     try {
-      final result = await _apiService.get(url: endpoint);
-      return result;
+      return db.collection(collection).doc(id).get().then(
+        (documentSnapshot) {
+          var data = documentSnapshot.data() ?? {};
+
+          if (data.isEmpty) {
+            return Result.failure(Failure.fromMessage(message: AppFailureMessages.unexpectedErrorMessage));
+          }
+
+          return Result.success(data);
+        },
+      );
     } on Failure catch (f) {
-      return f.error;
+      return Result.failure(f);
     }
   }
 
   @override
-  Future<Map<String, dynamic>> postData({required Map<String, dynamic> body, required String path}) async {
-    var endpoint = baseUrl + path;
+  Future<Result<Map<String, dynamic>, Failure>> addDocument({
+    required String collection,
+    required Map<String, dynamic> body,
+  }) async {
     try {
-      final result = await _apiService.post(body: body, url: endpoint);
-      return result;
+      return db.collection(collection).add(body).then(
+        (documentReference) {
+          return documentReference.get().then(
+            (documentSnapshot) {
+              var data = documentSnapshot.data() ?? {};
+
+              if (data.isEmpty) {
+                return Result.failure(Failure.fromMessage(message: AppFailureMessages.unexpectedErrorMessage));
+              }
+
+              return Result.success(data);
+            },
+          );
+        },
+      );
     } on Failure catch (f) {
-      return f.error;
+      return Result.failure(f);
     }
   }
 }

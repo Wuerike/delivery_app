@@ -1,10 +1,8 @@
-abstract class BaseDatabaseServiceAbstraction {
-  String baseUrl = "/projects/delivery-app-f0e5b/databases/(default)/documents/";
-  //TODO: Please change this admin token for yours. ;)
-  String adminToken = "AIzaSyCaA1EYAlqoylaDRaaw3YU0lSuxYO7jRQk";
-}
+import 'package:delivery_app/src/base/app_error/app_error.dart';
+import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
-abstract class DatabaseServiceAbstraction extends BaseDatabaseServiceAbstraction {
-  Future<Map<String, dynamic>> postData({required Map<String, dynamic> body, required String path});
-  Future<Map<String, dynamic>> getData({required String path});
+abstract class DatabaseServiceAbstraction {
+  Future<Result<Map<String, dynamic>, Failure>> getDocument({required String collection, required String id});
+  Future<Result<Map<String, dynamic>, Failure>> addDocument(
+      {required String collection, required Map<String, dynamic> body});
 }
