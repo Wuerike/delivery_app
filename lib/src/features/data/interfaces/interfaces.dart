@@ -15,6 +15,10 @@ abstract class SignInRepositoryAbstraction {
   Future<Result<SignInEntity, Failure>> signIn({required SignInParams params});
 }
 
+abstract class UpdatePasswordRepositoryAbstraction {
+  Future<Result<String, Failure>> updatePassword({required String email});
+}
+
 // * Database Repositories
 abstract class SaveUserRepositoryAbstraction {
   Future<Result<UserEntity, Failure>> saveUser({required UserEntity user});
