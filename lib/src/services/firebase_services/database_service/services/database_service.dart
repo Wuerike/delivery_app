@@ -10,11 +10,12 @@ class DatabaseService extends DatabaseServiceAbstraction {
   DatabaseService();
 
   @override
-  Future<Result<Map<String, dynamic>, Failure>> getDocument({required String collection, required String id}) async {
+  Future<Result<Map<String, dynamic>, Failure>> getDocument(
+      {required String collection, required String fieldName, required String fieldValue}) async {
     try {
-      return db.collection(collection).doc(id).get().then(
-        (documentSnapshot) {
-          var data = documentSnapshot.data() ?? {};
+      return db.collection(collection).where(fieldName, isEqualTo: fieldValue).get().then(
+        (querySnapshot) {
+          var data = querySnapshot.docs.first.data();
 
           if (data.isEmpty) {
             return Result.failure(Failure.fromMessage(message: AppFailureMessages.unexpectedErrorMessage));
