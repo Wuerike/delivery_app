@@ -6,12 +6,14 @@ class SignUpEntity {
     this.email,
     this.refreshToken,
     this.expiresIn,
+    this.localId,
   });
 
   String? idToken;
   String? email;
   String? refreshToken;
   String? expiresIn;
+  String? localId;
 
   factory SignUpEntity.fromJson(String str) => SignUpEntity.fromMap(json.decode(str));
 
@@ -22,6 +24,7 @@ class SignUpEntity {
         email: json["email"],
         refreshToken: json["refreshToken"],
         expiresIn: json["expiresIn"],
+        localId: json["localId"],
       );
 
   Map<String, dynamic> toMap() => {
@@ -29,5 +32,6 @@ class SignUpEntity {
         "email": email,
         "refreshToken": refreshToken,
         "expiresIn": expiresIn,
+        "localId": localId,
       };
 }

@@ -1,18 +1,21 @@
 import 'dart:convert';
 
 class UserEntity {
-  UserEntity(
-      {this.role,
-      this.username,
-      this.email,
-      this.phone,
-      this.dateOfBirth,
-      this.startDate,
-      this.photo,
-      this.shippingAddress,
-      this.billingAddress,
-      this.idToken});
+  UserEntity({
+    this.userId,
+    this.role,
+    this.username,
+    this.email,
+    this.phone,
+    this.dateOfBirth,
+    this.startDate,
+    this.photo,
+    this.shippingAddress,
+    this.billingAddress,
+    this.idToken,
+  });
 
+  String? userId;
   UserRole? role;
   String? username;
   String? email;
@@ -29,6 +32,7 @@ class UserEntity {
   String toJson() => json.encode(toMap());
 
   factory UserEntity.fromMap(Map<String, dynamic> json) => UserEntity(
+      userId: json["userId"],
       role: json["role"],
       username: json["username"],
       email: json["email"],
@@ -41,6 +45,7 @@ class UserEntity {
       idToken: json["idToken"]);
 
   Map<String, dynamic> toMap() => {
+        "userId": userId,
         "role": role,
         "username": username,
         "email": email,
