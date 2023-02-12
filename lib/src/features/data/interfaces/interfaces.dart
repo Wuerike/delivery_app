@@ -3,6 +3,7 @@ import 'package:delivery_app/src/features/data/repositories/auth/sign_in/sign_in
 import 'package:delivery_app/src/features/data/repositories/auth/sign_up/sign_up_params.dart';
 import 'package:delivery_app/src/features/domain/entities/auth/sign_in_entity.dart';
 import 'package:delivery_app/src/features/domain/entities/auth/sign_up_entity.dart';
+import 'package:delivery_app/src/features/domain/entities/auth/user_auth_data_entity.dart';
 import 'package:delivery_app/src/features/domain/entities/user/user_entity.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
@@ -17,6 +18,10 @@ abstract class SignInRepositoryAbstraction {
 
 abstract class UpdatePasswordRepositoryAbstraction {
   Future<Result<String, Failure>> updatePassword({required String email});
+}
+
+abstract class UserAuthDataRepositoryAbstraction {
+  Future<Result<UserAuthDataEntity, Failure>> getData({required String idToken});
 }
 
 // * Database Repositories
