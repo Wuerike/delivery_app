@@ -28,3 +28,7 @@ abstract class UserAuthDataRepositoryAbstraction {
 abstract class SaveUserRepositoryAbstraction {
   Future<Result<UserEntity, Failure>> saveUser({required UserEntity user});
 }
+
+abstract class GetUserRepositoryAbstraction {
+  Future<Result<UserEntity, Failure>> getUser({required String userId});
+}
