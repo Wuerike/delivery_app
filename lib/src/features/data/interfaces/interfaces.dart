@@ -32,3 +32,10 @@ abstract class SaveUserRepositoryAbstraction {
 abstract class GetUserRepositoryAbstraction {
   Future<Result<UserEntity, Failure>> getUser({required String userId});
 }
+
+// * Local Storage
+abstract class LocalStorageRepositoryAbstraction {
+  Future<Result<bool, Failure>> save({required String key, required String value});
+  Future<Result<String, Failure>> get({required String key});
+  Future<Result<bool, Failure>> remove({required String key});
+}
