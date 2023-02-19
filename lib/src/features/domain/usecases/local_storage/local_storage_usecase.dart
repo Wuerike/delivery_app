@@ -1,6 +1,7 @@
 import 'package:delivery_app/src/base/app_error/app_error.dart';
 import 'package:delivery_app/src/base/constants/error_messages.dart';
 import 'package:delivery_app/src/features/data/interfaces/interfaces.dart';
+import 'package:delivery_app/src/features/data/repositories/local_storage/local_storage_repository.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 abstract class LocalStorageUsecaseAbstraction {
@@ -10,18 +11,19 @@ abstract class LocalStorageUsecaseAbstraction {
 }
 
 class LocalStorageUsecase extends LocalStorageUsecaseAbstraction {
-  final LocalStorageRepositoryAbstraction _repository;
+  final LocalStorageRepositoryAbstraction repository;
 
-  LocalStorageUsecase({required LocalStorageRepositoryAbstraction repository}) : _repository = repository;
+  LocalStorageUsecase({LocalStorageRepositoryAbstraction? repository})
+      : repository = repository ?? LocalStorageRepository();
 
   @override
   Future<Result<bool, Failure>> executeSave({required String key, required String value}) {
-    return _repository.save(key: key, value: value).then((result) => result);
+    return repository.save(key: key, value: value).then((result) => result);
   }
 
   @override
   Future<Result<String, Failure>> executeGet({required String key}) {
-    return _repository.get(key: key).then((result) {
+    return repository.get(key: key).then((result) {
       switch (result.status) {
         case ResultStatus.success:
           // Null Check
@@ -38,6 +40,6 @@ class LocalStorageUsecase extends LocalStorageUsecaseAbstraction {
 
   @override
   Future<Result<bool, Failure>> executeRemove({required String key}) {
-    return _repository.remove(key: key).then((result) => result);
+    return repository.remove(key: key).then((result) => result);
   }
 }
