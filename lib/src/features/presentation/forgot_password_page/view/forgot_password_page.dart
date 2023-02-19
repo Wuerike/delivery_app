@@ -74,7 +74,7 @@ Widget _sendButton(BuildContext context) {
         "Your password has been reset",
         "You'll shortly receive an email with a code to setup a new password.",
         "Done",
-        () => Navigator.popUntil(context, ModalRoute.withName("login")),
+        () => Navigator.popUntil(context, ModalRoute.withName("sign-in")),
       );
     },
   );
