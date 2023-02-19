@@ -31,12 +31,12 @@ class _HomePageState extends State<HomePage> {
 
     Future.delayed(Duration.zero, () async {
       await alertWidget(
-        context,
-        const AssetImage("assets/location.png"),
-        "Enable your location",
-        "Please allow the use of your location",
-        "Enable Location",
-        () {
+        context: context,
+        image: const AssetImage("assets/location.png"),
+        title: "Enable your location",
+        body: "Please allow the use of your location",
+        buttonLabel: "Enable Location",
+        onButtonPressed: () {
           Navigator.pop(context);
         },
       );

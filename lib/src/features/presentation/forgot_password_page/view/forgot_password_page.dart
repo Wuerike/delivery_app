@@ -69,12 +69,12 @@ Widget _sendButton(BuildContext context) {
     "Send",
     onPressed: () {
       alertWidget(
-        context,
-        const AssetImage("assets/lock.png"),
-        "Your password has been reset",
-        "You'll shortly receive an email with a code to setup a new password.",
-        "Done",
-        () => Navigator.popUntil(context, ModalRoute.withName("sign-in")),
+        context: context,
+        image: const AssetImage("assets/lock.png"),
+        title: "Your password has been reset",
+        body: "You'll shortly receive an email with a code to setup a new password.",
+        buttonLabel: "Done",
+        onButtonPressed: () => Navigator.popUntil(context, ModalRoute.withName("sign-in")),
       );
     },
   );

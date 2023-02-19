@@ -4,17 +4,18 @@ import 'package:delivery_app/src/features/presentation/shared/components/texts/h
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Future alertWidget(
-  BuildContext context,
-  ImageProvider image,
-  String title,
-  String body,
-  String buttonLabel,
-  Function() onButtonPressed,
-) async {
+Future alertWidget({
+  required BuildContext context,
+  required ImageProvider image,
+  required String title,
+  required String body,
+  required String buttonLabel,
+  required Function() onButtonPressed,
+  bool? barrierDismissible,
+}) async {
   await showDialog(
     context: context,
-    barrierDismissible: false,
+    barrierDismissible: barrierDismissible == true,
     builder: (context) {
       return AlertDialog(
         shape: RoundedRectangleBorder(
