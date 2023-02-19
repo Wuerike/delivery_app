@@ -39,7 +39,7 @@ class SignUpUsecase extends SignUpUseCaseAbstraction {
 
             var userEntity = UserEntity(
               userId: signUpEntity.localId,
-              role: UserRole.user,
+              role: UserRole.user.value(),
               username: params.username,
               email: signUpEntity.email,
               phone: params.phone,
