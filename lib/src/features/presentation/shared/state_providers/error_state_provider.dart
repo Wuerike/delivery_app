@@ -19,12 +19,12 @@ class ErrorStateProvider extends ChangeNotifier with ErrorStateProviderDelegate 
 
   _showAlert({required BuildContext context, required String message}) async {
     await alertWidget(
-      context,
-      const AssetImage("assets/errorIcon.png"),
-      "Error",
-      message,
-      "Close",
-      () {
+      context: context,
+      image: const AssetImage("assets/errorIcon.png"),
+      title: "Error",
+      body: message,
+      buttonLabel: "Close",
+      onButtonPressed: () {
         Navigator.pop(context);
       },
     );
