@@ -6,11 +6,11 @@ import 'package:delivery_app/src/features/domain/entities/auth/sign_in_entity.da
 import 'package:delivery_app/src/features/domain/usecases/auth/sign_in/sign_in_usecase_params.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
-abstract class SignInUseCaseAbstraction {
+abstract class SignInUsecaseAbstraction {
   Future<Result<SignInEntity, Failure>> execute({required SignInUsecaseParams params});
 }
 
-class SignInUsecase extends SignInUseCaseAbstraction {
+class SignInUsecase extends SignInUsecaseAbstraction {
   final SignInRepositoryAbstraction _signInRepository;
 
   SignInUsecase({

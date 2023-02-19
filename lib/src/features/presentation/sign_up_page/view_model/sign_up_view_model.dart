@@ -30,13 +30,13 @@ abstract class SignUpViewModelAbstraction extends SignUpViewModelInput with Text
 
 class SignUpViewModel extends SignUpViewModelAbstraction {
   // Dependencies
-  final SignUpUsecaseAbstraction signUpUseCase;
+  final SignUpUsecaseAbstraction signUpUsecase;
   final LocalStorageUsecaseAbstraction localStorageUsecase;
 
   SignUpViewModel({
-    SignUpUsecaseAbstraction? signUpUseCase,
+    SignUpUsecaseAbstraction? signUpUsecase,
     LocalStorageUsecaseAbstraction? localStorageUsecase,
-  })  : signUpUseCase = signUpUseCase ?? SignUpUsecase(),
+  })  : signUpUsecase = signUpUsecase ?? SignUpUsecase(),
         localStorageUsecase = localStorageUsecase ?? LocalStorageUsecase();
 
   @override
@@ -50,7 +50,7 @@ class SignUpViewModel extends SignUpViewModelAbstraction {
   Future<Result<bool, Failure>> signUp() async {
     loadingStatusState.setLoadingState(isLoading: true);
 
-    return signUpUseCase
+    return signUpUsecase
         .execute(
       params: SignUpUsecaseParams(
         username: signUpModel?.username ?? "",
