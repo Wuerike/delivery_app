@@ -1,7 +1,7 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/fields/custom_text_form_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     width: double.maxFinite,
                     height: 350.h,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
@@ -62,9 +62,9 @@ class LoginPage extends StatelessWidget {
                             SizedBox(height: 10.h),
                             bodyText("Login to your account", color: AppColors.greyColor),
                             SizedBox(height: 40.h),
-                            roundedField("Email", textInputType: TextInputType.emailAddress),
+                            CustomTextFormField(hintText: "Email", textInputType: CustomTextFormFieldType.email),
                             SizedBox(height: 20.h),
-                            roundedField("Password", obscureText: true),
+                            CustomTextFormField(hintText: "Password", textInputType: CustomTextFormFieldType.password),
                             SizedBox(height: 40.h),
                             _loginButton(context),
                             SizedBox(height: 20.h),

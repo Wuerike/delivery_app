@@ -1,6 +1,6 @@
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/fields/rounded_field.dart';
+import 'package:delivery_app/src/features/presentation/shared/components/fields/custom_text_form_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:flutter/material.dart';
@@ -38,15 +38,15 @@ class SingUpPage extends StatelessWidget {
                         children: [
                           header1Text("Create an account"),
                           SizedBox(height: 40.h),
-                          roundedField("Username"),
+                          CustomTextFormField(hintText: "Username"),
                           SizedBox(height: 10.h),
-                          roundedField("Email", textInputType: TextInputType.emailAddress),
+                          CustomTextFormField(hintText: "Email", textInputType: CustomTextFormFieldType.email),
                           SizedBox(height: 10.h),
-                          roundedField("Phone", textInputType: TextInputType.phone),
+                          CustomTextFormField(hintText: "Phone", textInputType: CustomTextFormFieldType.phone),
                           SizedBox(height: 10.h),
-                          roundedField("Date of birth", textInputType: TextInputType.datetime),
+                          CustomTextFormField(hintText: "Date of birth", textInputType: CustomTextFormFieldType.date),
                           SizedBox(height: 10.h),
-                          roundedField("Password", obscureText: true),
+                          CustomTextFormField(hintText: "Password", textInputType: CustomTextFormFieldType.password),
                           SizedBox(height: 40.h),
                           _signUpButton(context),
                           SizedBox(height: 40.h),
