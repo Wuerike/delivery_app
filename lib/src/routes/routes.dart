@@ -13,7 +13,7 @@ import 'package:flutter/widgets.dart';
 
 final routes = <String, WidgetBuilder>{
   'welcome': (BuildContext context) => const WelcomePage(),
-  'sign-in': (BuildContext context) => const SignInPage(),
+  'sign-in': (BuildContext context) => SignInPage(),
   'forgot-password': (BuildContext context) => const ForgotPasswordPage(),
   'sign-up': (BuildContext context) => SingUpPage(),
   'home': (BuildContext context) => const HomePage(),
