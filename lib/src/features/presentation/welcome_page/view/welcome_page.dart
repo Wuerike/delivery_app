@@ -49,7 +49,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   roundedButton(
                     "Log in",
-                    onPressed: () => Navigator.pushNamed(context, "login"),
+                    onPressed: () => Navigator.pushNamed(context, "sign-in"),
                   ),
                   SizedBox(height: 20.h),
                   roundedButton(
