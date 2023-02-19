@@ -52,8 +52,9 @@ class CustomTextFormField extends StatelessWidget {
           padding: EdgeInsets.only(left: 20.w),
           child: TextFormField(
             controller: controller,
-            keyboardType: getKeyboardType(textInputType: textInputType),
             style: TextStyle(fontSize: 15.sp),
+            keyboardType: getKeyboardType(textInputType: textInputType),
+            readOnly: textInputType == CustomTextFormFieldType.date,
             obscureText: textInputType == CustomTextFormFieldType.password,
             decoration: InputDecoration(
               hintText: hintText,
