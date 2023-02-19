@@ -4,14 +4,15 @@ import 'package:delivery_app/src/utils/result_type/result_type.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageRepository extends LocalStorageRepositoryAbstraction {
-  final Future<SharedPreferences> _prefs;
+  final Future<SharedPreferences> sharedPreferences;
 
-  LocalStorageRepository({required Future<SharedPreferences> sharedPreferences}) : _prefs = sharedPreferences;
+  LocalStorageRepository({Future<SharedPreferences>? sharedPreferences})
+      : sharedPreferences = sharedPreferences ?? SharedPreferences.getInstance();
 
   @override
   Future<Result<bool, Failure>> save({required String key, required String value}) async {
     try {
-      final prefs = await _prefs;
+      final prefs = await sharedPreferences;
       final result = await prefs.setString(key, value);
       return Result.success(result);
     } on Failure catch (f) {
@@ -22,7 +23,7 @@ class LocalStorageRepository extends LocalStorageRepositoryAbstraction {
   @override
   Future<Result<String, Failure>> get({required String key}) async {
     try {
-      return _prefs.then((prefs) {
+      return sharedPreferences.then((prefs) {
         return Result.success(prefs.getString(key));
       });
     } on Failure catch (f) {
@@ -33,7 +34,7 @@ class LocalStorageRepository extends LocalStorageRepositoryAbstraction {
   @override
   Future<Result<bool, Failure>> remove({required String key}) async {
     try {
-      final prefs = await _prefs;
+      final prefs = await sharedPreferences;
       final result = await prefs.remove(key);
       return Result.success(result);
     } on Failure catch (f) {

@@ -2,6 +2,7 @@ import 'package:delivery_app/src/base/app_error/app_error.dart';
 import 'package:delivery_app/src/base/constants/error_messages.dart';
 import 'package:delivery_app/src/features/data/interfaces/interfaces.dart';
 import 'package:delivery_app/src/features/data/repositories/auth/sign_up/sign_up_params.dart';
+import 'package:delivery_app/src/features/data/repositories/auth/sign_up/sign_up_repository.dart';
 import 'package:delivery_app/src/features/domain/entities/auth/sign_up_entity.dart';
 import 'package:delivery_app/src/features/domain/entities/user/user_entity.dart';
 import 'package:delivery_app/src/features/domain/usecases/auth/sign_up/sign_up_usecase_params.dart';
@@ -10,23 +11,23 @@ import 'package:delivery_app/src/utils/date/datetime_now_string_helper.dart';
 import 'package:delivery_app/src/utils/default_images/default_user_photo.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
-abstract class SignUpUseCaseAbstraction {
+abstract class SignUpUsecaseAbstraction {
   Future<Result<SignUpEntity, Failure>> execute({required SignUpUsecaseParams params});
 }
 
-class SignUpUsecase extends SignUpUseCaseAbstraction {
-  final SignUpRepositoryAbstraction _signUpRepository;
-  final SaveUserUsecaseAbstraction _saveUserUsecase;
+class SignUpUsecase extends SignUpUsecaseAbstraction {
+  final SignUpRepositoryAbstraction signUpRepository;
+  final SaveUserUsecaseAbstraction saveUserUsecase;
 
   SignUpUsecase({
-    required SignUpRepositoryAbstraction signUpRepository,
-    required SaveUserUsecaseAbstraction saveUserUsecase,
-  })  : _signUpRepository = signUpRepository,
-        _saveUserUsecase = saveUserUsecase;
+    SignUpRepositoryAbstraction? signUpRepository,
+    SaveUserUsecaseAbstraction? saveUserUsecase,
+  })  : signUpRepository = signUpRepository ?? SignUpRepository(),
+        saveUserUsecase = saveUserUsecase ?? SaveUserUsecase();
 
   @override
   Future<Result<SignUpEntity, Failure>> execute({required SignUpUsecaseParams params}) {
-    return _signUpRepository.signUp(params: SignUpParams(email: params.email, password: params.password)).then(
+    return signUpRepository.signUp(params: SignUpParams(email: params.email, password: params.password)).then(
       (result) {
         switch (result.status) {
           case ResultStatus.success:
@@ -39,7 +40,7 @@ class SignUpUsecase extends SignUpUseCaseAbstraction {
 
             var userEntity = UserEntity(
               userId: signUpEntity.localId,
-              role: UserRole.user,
+              role: UserRole.user.value(),
               username: params.username,
               email: signUpEntity.email,
               phone: params.phone,
@@ -51,7 +52,7 @@ class SignUpUsecase extends SignUpUseCaseAbstraction {
               idToken: signUpEntity.idToken,
             );
 
-            return _saveUserUsecase.execute(user: userEntity).then((result) {
+            return saveUserUsecase.execute(user: userEntity).then((result) {
               switch (result.status) {
                 case ResultStatus.success:
                   return Result.success(signUpEntity);

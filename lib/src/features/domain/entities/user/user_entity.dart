@@ -16,7 +16,7 @@ class UserEntity {
   });
 
   String? userId;
-  UserRole? role;
+  String? role;
   String? username;
   String? email;
   String? phone;
@@ -62,7 +62,7 @@ class UserEntity {
 enum UserRole { user, owner, admin, rider }
 
 extension ParseToString on UserRole {
-  String toShortString() {
+  String value() {
     return toString().split('.').last;
   }
 }
