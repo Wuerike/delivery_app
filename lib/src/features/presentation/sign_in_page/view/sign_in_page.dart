@@ -91,7 +91,7 @@ class SignInPage extends StatelessWidget with BaseView {
                                 SizedBox(height: 20.h),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.pushNamed(context, "forgot-password");
+                                    Navigator.pushNamed(context, "update-password");
                                   },
                                   child: Container(
                                     child: bodyText("Forgot your password?"),
