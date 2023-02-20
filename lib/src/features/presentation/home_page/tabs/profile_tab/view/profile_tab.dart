@@ -1,6 +1,6 @@
 import 'package:delivery_app/src/base/views/base_view.dart';
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/home_page/profile_tab/view_model/profile_view_model.dart';
+import 'package:delivery_app/src/features/presentation/home_page/tabs/profile_tab/view_model/profile_view_model.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header2_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/state_providers/loading_state_provider.dart';
