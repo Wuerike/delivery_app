@@ -1,4 +1,5 @@
 import 'package:delivery_app/firebase_options.dart';
+import 'package:delivery_app/src/base/views/base_view.dart';
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/shared/state_providers/error_state_provider.dart';
 import 'package:delivery_app/src/features/presentation/shared/state_providers/loading_state_provider.dart';
@@ -29,13 +30,37 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ErrorStateProvider()),
         ChangeNotifierProvider(create: (_) => LoadingStateProvider()),
       ],
-      child: const MyApp(),
+      child: MyAppInitialState(),
+    );
+  }
+}
+
+class MyAppInitialState extends StatelessWidget with BaseView {
+  MyAppInitialState({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: coordinator.start(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return MyApp(initialRoute: snapshot.data!);
+        } else {
+          // TODO: Add a splash screen
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: loadingView,
+          );
+        }
+      },
     );
   }
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String initialRoute;
+
+  MyApp({super.key, required this.initialRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +73,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           routes: routes,
-          initialRoute: 'welcome',
+          initialRoute: initialRoute,
           theme: ThemeData(
             primaryColor: AppColors.orange,
             scaffoldBackgroundColor: AppColors.bgGreyPage,
