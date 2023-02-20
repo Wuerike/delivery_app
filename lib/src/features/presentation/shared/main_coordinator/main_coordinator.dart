@@ -9,7 +9,7 @@ class RoutesPaths {
   static String signIn = "sign-in";
   static String signUp = "sign-up";
   static String home = "home";
-  static String updatePassword = "forgot-password";
+  static String updatePassword = "update-password";
 }
 
 class MainCoordinator {

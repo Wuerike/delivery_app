@@ -61,12 +61,10 @@ class ApiService extends ApiServiceAbstraction {
     required Map<String, dynamic> body,
     Map<String, String>? headers,
   }) async {
-    final uri = Uri.parse(url);
-    final response = await http.post(uri, headers: headers, body: jsonEncode(body));
-
-    var response_code = response.statusCode;
-
     try {
+      final uri = Uri.parse(url);
+      final response = await http.post(uri, headers: headers, body: jsonEncode(body));
+
       if ((response.statusCode ~/ 100) == 2) {
         var jsonResponse = jsonDecode(response.body);
 

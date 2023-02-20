@@ -1,17 +1,18 @@
 import 'package:delivery_app/src/features/data/interfaces/interfaces.dart';
+import 'package:delivery_app/src/features/data/repositories/auth/update_password/update_password_repository.dart';
 
-abstract class UpdatePasswordAbstraction {
+abstract class UpdatePasswordUsecaseAbstraction {
   Future<void> execute({required String email});
 }
 
-class UpdatePassword extends UpdatePasswordAbstraction {
-  final UpdatePasswordRepositoryAbstraction _updatePasswordRepository;
+class UpdatePasswordUsecase extends UpdatePasswordUsecaseAbstraction {
+  final UpdatePasswordRepositoryAbstraction updatePasswordRepository;
 
-  UpdatePassword(UpdatePasswordRepositoryAbstraction updatePasswordRepository)
-      : _updatePasswordRepository = updatePasswordRepository;
+  UpdatePasswordUsecase({UpdatePasswordRepositoryAbstraction? updatePasswordRepository})
+      : updatePasswordRepository = updatePasswordRepository ?? UpdatePasswordRepository();
 
   @override
   Future<void> execute({required String email}) async {
-    await _updatePasswordRepository.updatePassword(email: email);
+    await updatePasswordRepository.updatePassword(email: email);
   }
 }

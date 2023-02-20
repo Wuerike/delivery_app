@@ -1,3 +1,5 @@
+import 'package:delivery_app/src/base/views/base_view.dart';
+import 'package:delivery_app/src/features/presentation/update_password_page/view_model/update_password_view_model.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/alerts/alert_widget.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
@@ -8,8 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+class UpdatePasswordPage extends StatelessWidget with BaseView {
+  // const PpdatePasswordPage({Key? key}) : super(key: key);
+  final UpdatePasswordViewModelAbstraction viewModel;
+
+  UpdatePasswordPage({
+    super.key,
+    UpdatePasswordViewModelAbstraction? viewModel,
+  }) : viewModel = viewModel ?? UpdatePasswordViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +25,21 @@ class ForgotPasswordPage extends StatelessWidget {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
         child: SingleChildScrollView(
-          physics: const ClampingScrollPhysics(parent: NeverScrollableScrollPhysics()),
+          physics: const AlwaysScrollableScrollPhysics(),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height,
             child: Stack(
               children: [
-                Positioned(
-                  left: 16,
-                  top: 50.h,
+                Container(
+                  margin: EdgeInsets.fromLTRB(16, 50.h, 0, 0),
                   child: backButton(context, Colors.black),
                 ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  top: 100.h,
-                  child: Padding(
-                    padding: EdgeInsets.all(20.h),
-                    child: Center(
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 100.h, 0, 0),
+                  padding: EdgeInsets.all(20.h),
+                  child: Center(
+                    child: Form(
+                      key: viewModel.formKey,
+                      autovalidateMode: AutovalidateMode.disabled,
                       child: Column(
                         children: [
                           header1Text("Forgot password"),
@@ -47,9 +52,16 @@ class ForgotPasswordPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 40.h),
-                          CustomTextFormField(hintText: "Email", textInputType: CustomTextFormFieldType.email),
+                          CustomTextFormField(
+                            hintText: "Email",
+                            delegate: viewModel,
+                            textInputType: CustomTextFormFieldType.email,
+                          ),
                           SizedBox(height: 40.h),
-                          _sendButton(context),
+                          roundedButton(
+                            "Send",
+                            onPressed: () => _sendEmailButtonPressed(context),
+                          ),
                         ],
                       ),
                     ),
@@ -64,18 +76,18 @@ class ForgotPasswordPage extends StatelessWidget {
   }
 }
 
-Widget _sendButton(BuildContext context) {
-  return roundedButton(
-    "Send",
-    onPressed: () {
+extension UserAction on UpdatePasswordPage {
+  _sendEmailButtonPressed(BuildContext context) async {
+    if (viewModel.isFormValidate()) {
+      await viewModel.updatePassword();
       alertWidget(
         context: context,
         image: const AssetImage("assets/lock.png"),
-        title: "Your password has been reset",
+        title: "Update your password",
         body: "You'll shortly receive an email with a code to setup a new password.",
         buttonLabel: "Done",
         onButtonPressed: () => Navigator.popUntil(context, ModalRoute.withName("sign-in")),
       );
-    },
-  );
+    }
+  }
 }
