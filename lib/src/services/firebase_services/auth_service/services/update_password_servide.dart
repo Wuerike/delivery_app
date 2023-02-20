@@ -2,12 +2,12 @@ import 'package:delivery_app/src/services/firebase_services/auth_service/interfa
 
 class UpdatePasswordService extends UpdatePasswordServiceAbstraction {
   @override
-  Future<Map<String, dynamic>> updatePassword({required String email}) {
+  Future<Map<String, dynamic>> updatePassword({required String email}) async {
     final body = {
       "requestType": "PASSWORD_RESET",
       "email": email,
     };
 
-    return apiService.post(url: endpoint, body: body);
+    return await apiService.post(url: endpoint, body: body);
   }
 }
