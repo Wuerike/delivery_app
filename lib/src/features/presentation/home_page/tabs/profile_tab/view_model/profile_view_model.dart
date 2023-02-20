@@ -9,7 +9,6 @@ import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 abstract class ProfileViewModelInput {
   // Exposed Properties
-  late LoadingStateProvider loadingStatusState;
   SignUpModel? signUpModel = SignUpModel();
 
   // Exposed Methods

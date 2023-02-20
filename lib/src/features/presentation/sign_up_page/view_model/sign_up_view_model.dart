@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 
 abstract class SignUpViewModelInput {
   // Exposed Properties
-  late LoadingStateProvider loadingStatusState;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController dateController;
   late DateTime selectedDate;
