@@ -52,10 +52,6 @@ class SignInPage extends StatelessWidget with BaseView {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.fromLTRB(16, 50.h, 0, 0),
-                        child: backButton(context, Colors.white),
-                      ),
-                      Container(
                         margin: EdgeInsets.fromLTRB(0, 330.h, 0, 0),
                         padding: EdgeInsets.all(20.h),
                         decoration: BoxDecoration(

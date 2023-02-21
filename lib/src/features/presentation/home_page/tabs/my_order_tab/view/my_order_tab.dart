@@ -1,6 +1,6 @@
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/home_page/my_order_tab/view/custom_widgets/empty_order_view.dart';
-import 'package:delivery_app/src/features/presentation/home_page/my_order_tab/view/custom_widgets/order_card.dart';
+import 'package:delivery_app/src/features/presentation/home_page/tabs/my_order_tab/view/custom_widgets/empty_order_view.dart';
+import 'package:delivery_app/src/features/presentation/home_page/tabs/my_order_tab/view/custom_widgets/order_card.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header1_text.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/header3_text.dart';
 import 'package:flutter/material.dart';

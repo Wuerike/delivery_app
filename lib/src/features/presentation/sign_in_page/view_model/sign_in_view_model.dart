@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 
 abstract class SignInViewModelInput {
   // Exposed Properties
-  late LoadingStateProvider loadingStatusState;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   SignInModel? signInModel = SignInModel();
 
