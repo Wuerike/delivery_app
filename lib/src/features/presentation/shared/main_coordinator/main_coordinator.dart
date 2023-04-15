@@ -2,15 +2,8 @@
 import 'package:delivery_app/src/base/constants/local_storage_keys.dart';
 import 'package:delivery_app/src/features/domain/usecases/local_storage/local_storage_usecase.dart';
 import 'package:delivery_app/src/features/domain/usecases/user/validate_current_user/validate_user_usecase.dart';
+import 'package:delivery_app/src/routes/routes.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
-
-class RoutesPaths {
-  static String welcome = "welcome";
-  static String signIn = "sign-in";
-  static String signUp = "sign-up";
-  static String home = "home";
-  static String updatePassword = "update-password";
-}
 
 class MainCoordinator {
   // Dependencies
