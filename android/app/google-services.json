@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "1013199009204-pummfc0r0q608leh3rt17q442r04k9kk.apps.googleusercontent.com",
+          "client_id": "1013199009204-uglljiap1rdmfg6bdv2lruc0brq2vrt7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wuerike.delivery_app",
+            "certificate_hash": "5035f007d1eb4fd1bc43c041f9d7d12be62dc993"
+          }
+        },
+        {
+          "client_id": "1013199009204-rrisn57ig6rniemql6gcnios3emtgv78.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
