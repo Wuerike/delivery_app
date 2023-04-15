@@ -1,6 +1,5 @@
 import 'package:delivery_app/src/base/views/base_view.dart';
 import 'package:delivery_app/src/colors/colors.dart';
-import 'package:delivery_app/src/features/presentation/shared/components/buttons/back_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/buttons/rounded_button.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/fields/custom_text_form_field.dart';
 import 'package:delivery_app/src/features/presentation/shared/components/texts/body_text.dart';
