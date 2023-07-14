@@ -26,7 +26,7 @@ class RoutesPaths {
 }
 
 final routes = <String, WidgetBuilder>{
-  RoutesPaths.welcome: (BuildContext context) => const WelcomePage(),
+  RoutesPaths.welcome: (BuildContext context) => WelcomePage(),
   RoutesPaths.signIn: (BuildContext context) => SignInPage(),
   RoutesPaths.updatePassword: (BuildContext context) => UpdatePasswordPage(),
   RoutesPaths.signUp: (BuildContext context) => SingUpPage(),
