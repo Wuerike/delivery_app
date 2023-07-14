@@ -1,5 +1,6 @@
 abstract class AppFailureMessages {
   static String unexpectedErrorMessage = "An unexpected error has occurred";
+  static String documentNotFound = "There is no document record corresponding to this identifier.";
 }
 
 abstract class FirebaseFailureMessages {
