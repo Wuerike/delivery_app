@@ -31,10 +31,10 @@ abstract class _Exceptions {
 class ApiService extends ApiServiceAbstraction {
   @override
   Future<Map<String, dynamic>> get({required String url, Map<String, String>? headers}) async {
-    final uri = Uri.parse(url);
-    final response = await http.get(uri, headers: headers);
-
     try {
+      final uri = Uri.parse(url);
+      final response = await http.get(uri, headers: headers);
+
       if ((response.statusCode ~/ 100) == 2) {
         var jsonResponse = jsonDecode(response.body);
 
