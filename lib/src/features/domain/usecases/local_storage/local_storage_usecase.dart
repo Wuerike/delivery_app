@@ -17,7 +17,7 @@ class LocalStorageUsecase extends LocalStorageUsecaseAbstraction {
       : repository = repository ?? LocalStorageRepository();
 
   @override
-  Future<Result<bool, Failure>> executeSave({required String key, required String value}) {
+  Future<Result<bool, Failure>> executeSave({required String key, required String value}) async {
     return repository.save(key: key, value: value).then((result) => result);
   }
 
