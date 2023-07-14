@@ -70,6 +70,6 @@ class DefaultFirebaseOptions {
     projectId: 'delivery-app-f0e5b',
     storageBucket: 'delivery-app-f0e5b.appspot.com',
     iosClientId: '1013199009204-i41rjj2rjac67dtv4jtkjltnn9bgt8pn.apps.googleusercontent.com',
-    iosBundleId: 'com.wuerike.deliveryApp',
+    iosBundleId: 'com.example.deliveryApp',
   );
 }
