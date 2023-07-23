@@ -4,6 +4,7 @@ import 'package:delivery_app/src/features/domain/usecases/local_storage/local_st
 import 'package:delivery_app/src/features/domain/usecases/user/validate_current_user/validate_user_usecase.dart';
 import 'package:delivery_app/src/routes/routes.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
+import 'package:flutter/material.dart';
 
 class MainCoordinator {
   // Dependencies
@@ -43,5 +44,9 @@ class MainCoordinator {
         }
       },
     );
+  }
+
+  showTabsPage({required BuildContext context}) {
+    Navigator.pushNamed(context, RoutesPaths.home);
   }
 }
