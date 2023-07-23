@@ -4,5 +4,6 @@ import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 abstract class GoogleSignInServiceAbstraction {
   Future<UserModel> signIn();
+  Future<void> signOut();
   Future<Result<bool, Failure>> isUserInDatabase({required String userId});
 }
