@@ -11,16 +11,30 @@ import 'package:delivery_app/src/features/presentation/sign_up_page/view/sign_up
 import 'package:delivery_app/src/features/presentation/welcome_page/view/welcome_page.dart';
 import 'package:flutter/widgets.dart';
 
+class RoutesPaths {
+  static String welcome = "welcome";
+  static String signIn = "sign-in";
+  static String updatePassword = "update-password";
+  static String signUp = "sign-up";
+  static String home = "home";
+  static String search = "search";
+  static String filter = "filter";
+  static String collections = "collections";
+  static String collectionDetail = "collection-detail";
+  static String placeDetail = "place-detail";
+  static String profileDetail = "profile-detail";
+}
+
 final routes = <String, WidgetBuilder>{
-  'welcome': (BuildContext context) => const WelcomePage(),
-  'sign-in': (BuildContext context) => SignInPage(),
-  'update-password': (BuildContext context) => UpdatePasswordPage(),
-  'sign-up': (BuildContext context) => SingUpPage(),
-  'home': (BuildContext context) => HomePage(),
-  'search': (BuildContext context) => const SearchPage(),
-  'filter': (BuildContext context) => const FilterPage(),
-  'collections': (BuildContext context) => const CollectionsPage(),
-  'collection-detail': (BuildContext context) => const CollectionDetailPage(),
-  'place-detail': (BuildContext context) => const PlaceDetailPage(),
-  'profile-detail': (BuildContext context) => const ProfileDetailPage()
+  RoutesPaths.welcome: (BuildContext context) => WelcomePage(),
+  RoutesPaths.signIn: (BuildContext context) => SignInPage(),
+  RoutesPaths.updatePassword: (BuildContext context) => UpdatePasswordPage(),
+  RoutesPaths.signUp: (BuildContext context) => SingUpPage(),
+  RoutesPaths.home: (BuildContext context) => HomePage(),
+  RoutesPaths.search: (BuildContext context) => const SearchPage(),
+  RoutesPaths.filter: (BuildContext context) => const FilterPage(),
+  RoutesPaths.collections: (BuildContext context) => const CollectionsPage(),
+  RoutesPaths.collectionDetail: (BuildContext context) => const CollectionDetailPage(),
+  RoutesPaths.placeDetail: (BuildContext context) => const PlaceDetailPage(),
+  RoutesPaths.profileDetail: (BuildContext context) => const ProfileDetailPage()
 };

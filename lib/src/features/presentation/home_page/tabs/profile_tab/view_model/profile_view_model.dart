@@ -4,13 +4,9 @@ import 'package:delivery_app/src/base/app_error/app_error.dart';
 import 'package:delivery_app/src/base/views/base_view.dart';
 import 'package:delivery_app/src/features/domain/usecases/auth/sign_out/sign_out_usecase.dart';
 import 'package:delivery_app/src/features/presentation/shared/state_providers/loading_state_provider.dart';
-import 'package:delivery_app/src/features/presentation/sign_up_page/model/sing_up_model.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 abstract class ProfileViewModelInput {
-  // Exposed Properties
-  SignUpModel? signUpModel = SignUpModel();
-
   // Exposed Methods
   Future<Result<bool, Failure>> signOut();
 }
@@ -33,18 +29,8 @@ class ProfileViewModel extends ProfileViewModelAbstraction {
   @override
   Future<Result<bool, Failure>> signOut() async {
     loadingStatusState.setLoadingState(isLoading: true);
-
-    return signOutUsecase.execute().then(
-      (result) {
-        switch (result.status) {
-          case ResultStatus.success:
-            loadingStatusState.setLoadingState(isLoading: false);
-            return Result.success(true);
-          case ResultStatus.error:
-            loadingStatusState.setLoadingState(isLoading: false);
-            return Result.failure(result.error);
-        }
-      },
-    );
+    var result = await signOutUsecase.execute();
+    loadingStatusState.setLoadingState(isLoading: false);
+    return result;
   }
 }

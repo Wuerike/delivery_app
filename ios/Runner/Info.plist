@@ -56,5 +56,19 @@
 	<key>YourPurposeKey</key>
 	<string>This app requires temporary access to the device&apos;s precise location.</string>
 	</dict>
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+				<string>com.googleusercontent.apps.1013199009204-i41rjj2rjac67dtv4jtkjltnn9bgt8pn</string>
+			</array>
+		</dict>
+	</array>
+	<!-- End of the Google Sign-in Section -->
 </dict>
 </plist>

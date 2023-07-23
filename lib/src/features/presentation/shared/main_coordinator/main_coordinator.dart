@@ -2,15 +2,9 @@
 import 'package:delivery_app/src/base/constants/local_storage_keys.dart';
 import 'package:delivery_app/src/features/domain/usecases/local_storage/local_storage_usecase.dart';
 import 'package:delivery_app/src/features/domain/usecases/user/validate_current_user/validate_user_usecase.dart';
+import 'package:delivery_app/src/routes/routes.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
-
-class RoutesPaths {
-  static String welcome = "welcome";
-  static String signIn = "sign-in";
-  static String signUp = "sign-up";
-  static String home = "home";
-  static String updatePassword = "update-password";
-}
+import 'package:flutter/material.dart';
 
 class MainCoordinator {
   // Dependencies
@@ -24,7 +18,7 @@ class MainCoordinator {
         validateUserUsecase = validateUserUsecase ?? ValidateUserUsecase();
 
   Future<String> start() async {
-    // TODO: Sincethe value is not used it could return a bool
+    // TODO: Since the value is not used it could return a bool
     return _isUserLogged().then((value) {
       return value == null ? RoutesPaths.welcome : RoutesPaths.home;
     });
@@ -35,33 +29,24 @@ class MainCoordinator {
       (result) async {
         switch (result.status) {
           case ResultStatus.success:
-            // User has no register at local storage
+            // User has register at local storage
             final idToken = result.value;
+
             if (idToken == null) {
               return null;
             }
 
-            // Check if the found idToken exists on firebase
-            return validateUserUsecase.execute(idToken: idToken).then(
-              (result) {
-                switch (result.status) {
-                  case ResultStatus.success:
-                    if (result.value == true) {
-                      return idToken;
-                    } else {
-                      return null;
-                    }
-                  case ResultStatus.error:
-                    // TODO: This case should not happen yet
-                    return null;
-                }
-              },
-            );
+            // TODO: Check if the found idToken still exists on firebase
+            return idToken;
 
           case ResultStatus.error:
             return null;
         }
       },
     );
+  }
+
+  showTabsPage({required BuildContext context}) {
+    Navigator.pushNamed(context, RoutesPaths.home);
   }
 }

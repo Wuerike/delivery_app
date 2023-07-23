@@ -3,16 +3,17 @@ import 'package:delivery_app/src/base/app_error/app_error.dart';
 import 'package:delivery_app/src/features/data/interfaces/interfaces.dart';
 import 'package:delivery_app/src/features/domain/entities/user/user_entity.dart';
 import 'package:delivery_app/src/services/firebase_services/database_service/interfaces/interfaces.dart';
+import 'package:delivery_app/src/services/firebase_services/database_service/services/database_service.dart';
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 class GetUserRepository extends GetUserRepositoryAbstraction {
-  final DatabaseServiceAbstraction _database;
+  final DatabaseServiceAbstraction database;
 
-  GetUserRepository({required DatabaseServiceAbstraction database}) : _database = database;
+  GetUserRepository({DatabaseServiceAbstraction? database}) : database = database ?? DatabaseService();
 
   @override
   Future<Result<UserEntity, Failure>> getUser({required String userId}) {
-    return _database.getDocument(collection: "users", fieldName: "userId", fieldValue: userId).then(
+    return database.getDocument(collection: "users", fieldName: "userId", fieldValue: userId).then(
       (result) {
         switch (result.status) {
           case ResultStatus.success:

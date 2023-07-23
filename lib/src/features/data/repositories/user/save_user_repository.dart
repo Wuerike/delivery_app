@@ -6,7 +6,7 @@ import 'package:delivery_app/src/services/firebase_services/database_service/ser
 import 'package:delivery_app/src/utils/result_type/result_type.dart';
 
 class SaveUserRepository extends SaveUserRepositoryAbstraction {
-  // * Dependencies
+  // Dependencies
   final DatabaseServiceAbstraction database;
 
   SaveUserRepository({DatabaseServiceAbstraction? database}) : database = database ?? DatabaseService();

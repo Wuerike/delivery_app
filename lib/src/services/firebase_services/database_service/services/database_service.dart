@@ -15,11 +15,11 @@ class DatabaseService extends DatabaseServiceAbstraction {
     try {
       return db.collection(collection).where(fieldName, isEqualTo: fieldValue).get().then(
         (querySnapshot) {
-          var data = querySnapshot.docs.first.data();
-
-          if (data.isEmpty) {
-            return Result.failure(Failure.fromMessage(message: AppFailureMessages.unexpectedErrorMessage));
+          if (querySnapshot.size == 0) {
+            return Result.failure(Failure.fromMessage(message: AppFailureMessages.documentNotFound));
           }
+
+          var data = querySnapshot.docs.first.data();
 
           return Result.success(data);
         },
@@ -42,7 +42,7 @@ class DatabaseService extends DatabaseServiceAbstraction {
               var data = documentSnapshot.data() ?? {};
 
               if (data.isEmpty) {
-                return Result.failure(Failure.fromMessage(message: AppFailureMessages.unexpectedErrorMessage));
+                return Result.failure(Failure.fromMessage(message: AppFailureMessages.documentNotFound));
               }
 
               return Result.success(data);

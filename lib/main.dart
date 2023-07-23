@@ -41,7 +41,9 @@ class MyAppInitialState extends StatelessWidget with BaseView {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
+      // Check if user is logged and defines the initial page
       future: coordinator.start(),
+      // Shows a loading page until the future completes
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return MyApp(initialRoute: snapshot.data!);
