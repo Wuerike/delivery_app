@@ -126,7 +126,7 @@ extension UserAction on _ProfileTabState {
       barrierDismissible: true,
       onButtonPressed: () {
         widget.viewModel.signOut();
-        Navigator.pushReplacementNamed(context, "sign-in");
+        Navigator.pushNamedAndRemoveUntil(context, "welcome", (Route<dynamic> route) => false);
       },
     );
   }
