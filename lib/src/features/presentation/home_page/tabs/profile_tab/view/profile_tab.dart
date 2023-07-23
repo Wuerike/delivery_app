@@ -125,19 +125,8 @@ extension UserAction on _ProfileTabState {
       buttonLabel: "Close Section",
       barrierDismissible: true,
       onButtonPressed: () {
-        widget.viewModel.signOut().then(
-          (result) {
-            switch (result.status) {
-              case ResultStatus.success:
-                Navigator.pushReplacementNamed(context, "sign-in");
-                break;
-              case ResultStatus.error:
-                errorStateProvider.setFailure(context: context, value: result.error!);
-                Navigator.pushReplacementNamed(context, "sign-in");
-                break;
-            }
-          },
-        );
+        widget.viewModel.signOut();
+        Navigator.pushReplacementNamed(context, "sign-in");
       },
     );
   }

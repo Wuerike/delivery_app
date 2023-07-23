@@ -40,6 +40,6 @@ class LocalStorageUsecase extends LocalStorageUsecaseAbstraction {
 
   @override
   Future<Result<bool, Failure>> executeRemove({required String key}) {
-    return repository.remove(key: key).then((result) => result);
+    return repository.remove(key: key);
   }
 }
