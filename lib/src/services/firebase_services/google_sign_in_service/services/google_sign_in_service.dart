@@ -57,6 +57,10 @@ class GoogleSignInService extends GoogleSignInServiceAbstraction {
 
   @override
   Future<void> signOut() async {
-    await GoogleSignIn().disconnect();
+    try {
+      await GoogleSignIn().disconnect();
+    } catch (e) {
+      print(e);
+    }
   }
 }
